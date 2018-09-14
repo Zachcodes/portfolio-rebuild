@@ -1,31 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
+    <div class="nav">
+      <div class="nav-name">Zachary Springer</div>
+      <router-link to="/">Home</router-link>
+      <router-link to="/portfolio">Portfolio</router-link>
       <router-link to="/about">About</router-link>
+      <router-link to="/blog">Blog</router-link>
+      <router-link to="/contact">Contact</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
 }
-#nav {
-  padding: 30px;
+body {
+  margin: 0 auto;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 7vh;
+  padding: 0px 20px;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.nav-name {
+  margin-right: auto;
 }
 </style>

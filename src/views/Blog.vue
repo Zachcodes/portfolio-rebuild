@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    Home!
+  <div class="blog">
+    Blog!
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 
 export default {
-  name: 'home'
+  name: 'blog'
 }
 </script>
