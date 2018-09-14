@@ -1,6 +1,5 @@
 <template>
   <div class="contact">
-    Contact!
     <SocialMediaContainer/>
   </div>
 </template>
