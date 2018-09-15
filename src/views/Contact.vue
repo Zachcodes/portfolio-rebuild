@@ -1,7 +1,18 @@
 <template>
   <div class="contact-main-container">
-    <form class="contact-form-container">
-      <label>Name</label> <input v-bind="test"/>
+    <form class="contact-form-container" v-on:submit.prevent="handleSubmit">
+      <div>
+        <label>Name</label> <input class="contact-input" v-model="name"/>
+      </div>
+      <div>
+        <label>Email</label> <input class="contact-input" v-model="email"/>
+      </div> 
+      <div>
+        <label>Message</label> <input class="contact-input" v-model="message"/>
+      </div>
+      <div>
+        <button v-bind:disabled="checkValues" type="submit">Submit</button>
+      </div>
     </form>
     <SocialMediaContainer/>
   </div>
@@ -12,11 +23,26 @@ import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 
 export default {
   name: 'contact',
-  data: {
-    test: 'hello'
+  data() {
+    return {
+      name: '',
+      email: '',
+      message: ''
+    }
   },
   components: {
     SocialMediaContainer
+  },
+  methods: {
+    handleSubmit() {
+      
+    }
+  },
+  computed: {
+    checkValues() {
+      if(this.name && this.email && this.message) return true
+      return false
+    }
   }
 }
 </script>
@@ -32,5 +58,15 @@ export default {
 .contact-form-container {
   width: 40%;
   height: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.contact-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: .5px solid black;
+}
+.contact-input:focus {
+  outline: none;
 }
 </style>

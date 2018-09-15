@@ -18,7 +18,7 @@
 }
 body {
   margin: 0 auto;
-  background-image: linear-gradient(to bottom right, black, rgb(112,101,101,1));
+  background-image: linear-gradient(to bottom right, black, rgb(112,101,101,1), white);
   background-repeat: no-repeat;
   height: 100%;
   background-attachment: fixed;

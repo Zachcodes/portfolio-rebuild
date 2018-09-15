@@ -36,8 +36,13 @@ export default {
     right: 10px;
 }
 .social-media-icon {
-    color: white;
+    color: #5858588a;
     font-size: 30px;
     margin: 3px 0px;
+    transition: all .5s;
+}
+.social-media-icon:hover {
+    color: #2d2d2d;
+    font-size: 32px;
 }
 </style>
