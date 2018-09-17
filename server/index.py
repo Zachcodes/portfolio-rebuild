@@ -1,0 +1,15 @@
+from flask import Flask 
+from flask_cors import CORS
+from flask import request
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/api/submitContact', methods=['POST'])
+def handle_submit():
+    jsonData = request.get_json()
+    return 'working I guess'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000)
+    

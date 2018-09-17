@@ -24,6 +24,7 @@
 
 <script>
 import SocialMediaContainer from '../components/SocialMediaContainer.vue'
+import axios from 'axios'
 
 export default {
   name: 'contact',
@@ -39,7 +40,20 @@ export default {
   },
   methods: {
     handleSubmit() {
-      
+      axios({
+        method: 'post',
+        url: 'http://localhost:5000/api/submitContact',
+        data: {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        },
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      }).then(res => {
+        console.log(res)
+      })
     }
   },
   computed: {
