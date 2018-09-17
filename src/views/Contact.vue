@@ -11,7 +11,11 @@
         <label>Message</label> <input class="contact-input" v-model="message"/>
       </div>
       <div>
-        <button v-bind:disabled="checkValues" type="submit">Submit</button>
+        <button 
+        class="contact-submit-button"
+        v-bind:class="{ disabled: checkValues}" 
+        type="submit"
+        v-bind:disabled="checkValues">Submit</button>
       </div>
     </form>
     <SocialMediaContainer/>
@@ -40,8 +44,8 @@ export default {
   },
   computed: {
     checkValues() {
-      if(this.name && this.email && this.message) return true
-      return false
+      if(this.name && this.email && this.message) return false
+      return true
     }
   }
 }
@@ -68,5 +72,14 @@ export default {
 }
 .contact-input:focus {
   outline: none;
+}
+.contact-submit-button {
+  color: #d0d0d0;
+  background-color: #1f1f1f;
+  border: none;
+}
+.disabled {
+  color: #d0d0d0a8;
+  background-color: #1f1f1f3b;
 }
 </style>
