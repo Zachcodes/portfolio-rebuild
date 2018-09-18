@@ -21,19 +21,19 @@ CORS(app)
 @app.route('/api/submitContact', methods=['POST'])
 def handle_submit():
     jsonData = request.get_json()
-    name = jsonData['name']
-    email = jsonData['email']
-    message = jsonData['message']
-    msg = MIMEMultipart()
-    msg['From'] = email;
-    msg['To'] = HOST_EMAIL;
-    msg['Subject'] = email
+    # name = jsonData['name']
+    # email = jsonData['email']
+    # message = jsonData['message']
+    # msg = MIMEMultipart()
+    # msg['From'] = email;
+    # msg['To'] = HOST_EMAIL;
+    # msg['Subject'] = email
 
-    msg.attach(MIMEText(message, 'plain'))
+    # msg.attach(MIMEText(message, 'plain'))
 
-    s.send_message(msg)
+    # s.send_message(msg)
 
-    del msg;
+    # del msg;
     return 'Successfully sent message'
 
 if __name__ == "__main__":

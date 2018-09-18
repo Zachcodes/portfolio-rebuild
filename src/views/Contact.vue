@@ -52,7 +52,9 @@ export default {
           'Access-Control-Allow-Origin': '*'
         }
       }).then(res => {
-        console.log(res)
+        this.name = ''
+        this.email = ''
+        this.message = ''
       })
     }
   },
