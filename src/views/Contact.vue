@@ -1,7 +1,7 @@
 <template>
   <div class="contact-main-container">
     <form class="contact-form-container" v-on:submit.prevent="handleSubmit">
-      <div>
+      <!-- <div>
         <label>Name</label> <input class="contact-input" v-model="name"/>
       </div>
       <div>
@@ -9,11 +9,14 @@
       </div> 
       <div>
         <label>Message</label> <input class="contact-input" v-model="message"/>
-      </div>
-      <div>
+      </div> -->
+      <input class="contact-input" v-model="name" placeholder="Name"/>
+      <input class="contact-input" v-model="email" placeholder="Email"/>
+      <input class="contact-input" v-model="message" placeholder="Message"/>
+      <div class="contact-input-container">
         <button 
         class="contact-submit-button"
-        v-bind:class="{ disabled: checkValues}" 
+        v-bind:class="{ disabled: checkValues, active: !checkValues}" 
         type="submit"
         v-bind:disabled="checkValues">Submit</button>
       </div>
@@ -68,6 +71,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
 .contact-main-container {
   width: 100%;
   height: 80vh;
@@ -80,22 +84,65 @@ export default {
   height: 60%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-input {
   background-color: transparent;
   border: none;
   border-bottom: .5px solid black;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 250px;
+  color: white;
+  letter-spacing: 6px;
+  font-size: 12px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 .contact-input:focus {
   outline: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important; 
+  -moz-box-shadow: none !important;
+}
+.contact-input::-webkit-input-placeholder {
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: #ffffffa6;
+}
+.contact-input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .contact-submit-button {
-  color: #d0d0d0;
-  background-color: #1f1f1f;
-  border: none;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 200px;
+}
+.contact-submit-button:focus {
+  outline: none;
 }
 .disabled {
-  color: #d0d0d0a8;
-  background-color: #1f1f1f3b;
+  color: #ffffffa6;
+  background-color: transparent;
+  border: 1px solid #ffffffa6;
+  border-radius: 10px;
+}
+.active:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-family: 'Nunito Sans', sans-serif;
+  outline: none;
+  box-shadow: 1px 2px 2px black;
 }
 </style>
