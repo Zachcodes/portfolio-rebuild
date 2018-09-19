@@ -34,6 +34,7 @@ export default {
   display: flex;
   flex-direction: column;
   color: white;
+  position: relative;
 }
 .home-title {
   height: 45%;
@@ -64,5 +65,14 @@ export default {
   font-size: 20px;
   text-shadow: .5px .5px 1px black;
   letter-spacing: 2px;
+  animation-name: fadeout;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  position: relative;
 }
+/* @keyframes fadeout {
+  0% {left: 0%; opacity: 1;}
+  100% {left: 100%; opacity: 0;}
+} */
 </style>
