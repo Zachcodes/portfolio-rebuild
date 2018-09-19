@@ -4,8 +4,8 @@
       <div class="home-title">Zachary Springer</div>
       <div class="home-sub-title">Web Design</div>
       <div class="home-carousel-container"> 
-        <div class="home-carousel-text hidden fadein">{{currentCarouselValue}}</div>
-        <div class="home-carousel-text fadeout">{{nextCarouselValue}}</div>
+        <div class="{currentClass}">{{currentCarouselValue}}</div>
+        <div class="{nextClass}">{{nextCarouselValue}}</div>
         <!-- <div class="home-carousel-text hidden">Creativity</div> -->
       </div>
     </div>
@@ -25,7 +25,9 @@ export default {
     return {
       carouselText: ['Simplified', 'Intuitive', 'Creative'],
       startingPosition: 0,
-      nextPosition: 1
+      nextPosition: 1,
+      currentClass: "home-carousel-text hidden fadein",
+      nextClass: "home-carousel-text fadeout"
     }
   },
   computed: {
@@ -40,7 +42,9 @@ export default {
     setInterval(() => {
       this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
       this.nextPosition = this.nextPosition === 2 ? 0 : this.nextPosition + 1;
-    }, 2000)
+      this.currentClass = "home-carousel-text hidden fadein";
+      this.nextClass = "home-carousel-text fadeout";
+    }, 7000)
   }
 }
 </script>
@@ -105,16 +109,16 @@ export default {
 .fadeout {
   animation-name: fadeout;
   animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
   animation-fill-mode: forwards;
 }
 .fadein {
   opacity: 0;
   animation-name: fadein;
   animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
   animation-fill-mode: forwards;
 }
 @keyframes fadein {
