@@ -48,6 +48,7 @@ body {
   font-size: 18px;
   font-weight: bold;
   padding-bottom: 5px;
+  text-shadow: .4px .4px .7px black;
   transition: font-size .3s;
 }
 .nav-links:hover {
