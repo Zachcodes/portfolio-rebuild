@@ -13,6 +13,7 @@
       <input class="contact-input" v-model="name" placeholder="Name"/>
       <input class="contact-input" v-model="email" placeholder="Email"/>
       <input class="contact-input" v-model="message" placeholder="Message"/>
+      <!-- <font-awesome-icon :icon="{prefix: 'fas', iconName: 'times-circle'}"></font-awesome-icon> -->
       <div class="contact-input-container">
         <button 
         class="contact-submit-button"

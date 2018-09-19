@@ -21,10 +21,11 @@ body {
   margin: 0 auto;
   /* background-image: linear-gradient(to bottom right, black, rgb(112,101,101,1), white); */
   /* background-image: linear-gradient(to bottom right, white, rgb(112,101,101,1), black); */
-  background-image: linear-gradient(to bottom right, black, rgb(9, 98, 112), rgb(65, 189, 209));
-  background-repeat: no-repeat;
+  /* background-image: linear-gradient(to bottom right, black, rgb(9, 98, 112), rgb(65, 189, 209)); */
+  background: rgb(65, 189, 209);
+  /* background-repeat: no-repeat; */
   height: 100%;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 .nav {
   display: flex;
