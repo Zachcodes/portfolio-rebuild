@@ -69,20 +69,28 @@ export default {
   },
   methods: {
     beforeEnter(e) {
-      e.style.opacity = 0;
-      e.style.marginRight = 'auto'
+      e.classList.add('fade-start')
+      console.log(e.classList)
+      // e.style.opacity = 0;
+      // e.style.marginRight = 'auto'
+      // e.style.marginLeft = '0'
     },
     enter(el, done) {
+      console.log(23423423)
       // Velocity(el, {left: '50%', opacity: 1}, {duration: 3000, complete: done})
-      Velocity(el, {marginLeft: 'auto', 
-                    marginRight: 'auto', 
-                    opacity: 1}, {duration: 3000, complete: done})
+      //TODO: calculate the width of the parent, then calculate the width of the div, then set left 
+      // Velocity(el, {marginLeft: 'auto', 
+      //               marginRight: 'auto', 
+      //               opacity: 1}, {duration: 3000, complete: done})
+      el.classList.add('fade-middle')
       this.fadein = false;
+      done()
     },
     leave(el, done) {
 
       setTimeout(() => {
-        Velocity(el, {marginLeft: 'auto', opacity: 0}, {duration: 3000, complete: done})
+        // Velocity(el, {marginLeft: 'auto', opacity: 0}, {duration: 3000, complete: done})
+        el.classList.add('fade-end')
         // el.classList.add('fade-end')
       },5000)
     },
@@ -155,5 +163,19 @@ export default {
 }
 .testing {
   position: relative;
+}
+
+.fade-start {
+  opacity: 0;
+  left: 0;
+}
+/* .fade-middle {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: all 3s;
+} */
+.fade-end {
+  transform: translate(-100%, 0);
+  transition: transform 3s;
 }
 </style>
