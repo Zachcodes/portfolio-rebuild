@@ -4,21 +4,32 @@
       <div class="home-title">Zachary Springer</div>
       <div class="home-sub-title">Web Design</div>
       <!-- Beginning of if -->
-      <div class="home-carousel-container" v-if="fadeout"> 
-        <transition 
-          name="fadeout"
-          appear
-        >
-          <div class="testing">{{currentCarouselValue}}</div>
-        </transition>
-        <transition 
+      <div class="home-carousel-container"> 
+        <!-- <transition 
           name="fadein"
+
+          appear
+        > -->
+        <!-- <transition 
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:leave="leave"
+          v-on:after-leave="afterLeave"
+          v-bind:css="false"
+          appear
+        > -->
+        <transition 
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:leave="leave"
+          v-on:after-leave="afterLeave"
+          name="fade"
           appear
         >
-          <div class="testing">{{nextCarouselValue}}</div>
+          <div class="testing" v-show="fadein" :key="currentText">{{currentText}}</div>
         </transition>
       </div>
-      <!-- Beginning of else -->
+      <!-- Beginning of else
       <div class="home-carousel-container" v-else> 
         <transition 
           v-if="fadeout"
@@ -34,7 +45,7 @@
         >
           <div class="testing">{{currentCarouselValue}}</div>
         </transition>
-      </div>
+      </div> -->
     </div>
     <SocialMediaContainer/>
   </div>
@@ -52,28 +63,37 @@ export default {
     return {
       carouselText: ['Simplified', 'Intuitive', 'Creative'],
       startingPosition: 0,
-      nextPosition: 1,
-      currentClass: "fadein",
-      nextClass: "home-carousel-text fadeout",
-      show: true,
-      fadeout: true
+      fadein: true,
+      currentText: 'Simplified'
     }
   },
-  computed: {
+  methods: {
+    beforeEnter(e) {
+      e.style.opacity = 0;
+      e.style.marginRight = 'auto'
+    },
+    enter(el, done) {
+      // Velocity(el, {left: '50%', opacity: 1}, {duration: 3000, complete: done})
+      Velocity(el, {marginLeft: 'auto', 
+                    marginRight: 'auto', 
+                    opacity: 1}, {duration: 3000, complete: done})
+      this.fadein = false;
+    },
+    leave(el, done) {
+
+      setTimeout(() => {
+        Velocity(el, {marginLeft: 'auto', opacity: 0}, {duration: 3000, complete: done})
+        // el.classList.add('fade-end')
+      },5000)
+    },
+    afterLeave(el) {
+        this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
+        this.currentText = this.carouselText[this.startingPosition]
+        this.fadein = true;
+    },
     currentCarouselValue() {
       return this.carouselText[this.startingPosition]
     },
-    nextCarouselValue() {
-      return this.carouselText[this.nextPosition]
-    }
-  },
-  mounted() {
-    setInterval(() => {
-      this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
-      this.nextPosition = this.nextPosition === 2 ? 0 : this.nextPosition + 1;
-      this.currentClass = "home-carousel-text hidden fadein";
-      this.nextClass = "home-carousel-text fadeout";
-    }, 7000)
   }
 }
 </script>
@@ -118,7 +138,8 @@ export default {
   height: 25%;
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
   position: relative;
 }
 .home-carousel-text {
@@ -132,34 +153,7 @@ export default {
   letter-spacing: 2px;
   position: relative;
 }
-.hidden {
-  /* display: none; */
-  margin-right: auto;
-}
 .testing {
   position: relative;
-}
-.fadeout-enter-active {
-  animation-name: fadeout;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-}
-.fadein-enter-active {
-  opacity: 0;
-  animation-name: fadein;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
-  animation-fill-mode: forwards; 
-}
-@keyframes fadein {
-  0% {left: 0%; opacity: 0;}
-  100% {left: 50%; opacity: 1;}
-}
-@keyframes fadeout {
-  0% {left: 50%; opacity: 1;}
-  100% {left: 100%; opacity: 0;}
 }
 </style>
