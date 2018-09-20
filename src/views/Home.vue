@@ -3,10 +3,37 @@
     <div class="home-position-container">
       <div class="home-title">Zachary Springer</div>
       <div class="home-sub-title">Web Design</div>
-      <div class="home-carousel-container"> 
-        <div class="{currentClass}">{{currentCarouselValue}}</div>
-        <div class="{nextClass}">{{nextCarouselValue}}</div>
-        <!-- <div class="home-carousel-text hidden">Creativity</div> -->
+      <!-- Beginning of if -->
+      <div class="home-carousel-container" v-if="fadeout"> 
+        <transition 
+          name="fadeout"
+          appear
+        >
+          <div class="testing">{{currentCarouselValue}}</div>
+        </transition>
+        <transition 
+          name="fadein"
+          appear
+        >
+          <div class="testing">{{nextCarouselValue}}</div>
+        </transition>
+      </div>
+      <!-- Beginning of else -->
+      <div class="home-carousel-container" v-else> 
+        <transition 
+          v-if="fadeout"
+          name="fadeout"
+          appear
+        >
+          <div class="testing">{{currentCarouselValue}}</div>
+        </transition>
+        <transition 
+          v-else
+          name="fadein"
+          appear
+        >
+          <div class="testing">{{currentCarouselValue}}</div>
+        </transition>
       </div>
     </div>
     <SocialMediaContainer/>
@@ -26,8 +53,10 @@ export default {
       carouselText: ['Simplified', 'Intuitive', 'Creative'],
       startingPosition: 0,
       nextPosition: 1,
-      currentClass: "home-carousel-text hidden fadein",
-      nextClass: "home-carousel-text fadeout"
+      currentClass: "fadein",
+      nextClass: "home-carousel-text fadeout",
+      show: true,
+      fadeout: true
     }
   },
   computed: {
@@ -90,6 +119,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .home-carousel-text {
   display: flex;
@@ -106,27 +136,30 @@ export default {
   /* display: none; */
   margin-right: auto;
 }
-.fadeout {
+.testing {
+  position: relative;
+}
+.fadeout-enter-active {
   animation-name: fadeout;
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-delay: 0s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
-.fadein {
+.fadein-enter-active {
   opacity: 0;
   animation-name: fadein;
   animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-fill-mode: forwards; 
 }
 @keyframes fadein {
   0% {left: 0%; opacity: 0;}
-  100% {left: 100%; opacity: 1;}
+  100% {left: 50%; opacity: 1;}
 }
 @keyframes fadeout {
-  0% {left: 0%; opacity: 1;}
+  0% {left: 50%; opacity: 1;}
   100% {left: 100%; opacity: 0;}
 }
 </style>
