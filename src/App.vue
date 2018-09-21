@@ -14,6 +14,7 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 * {
   box-sizing: border-box;
 }
@@ -23,7 +24,7 @@ body {
   /* background-image: linear-gradient(to bottom right, white, rgb(112,101,101,1), black); */
   /* background-image: linear-gradient(to bottom right, black, rgb(9, 98, 112), rgb(65, 189, 209)); */
   /* background: rgb(65, 189, 209); */
-  background: rgb(0, 95, 110);
+  background: rgb(42, 183, 206);
   /* background-repeat: no-repeat; */
   height: 100%;
   /* background-attachment: fixed; */

@@ -2,7 +2,7 @@
   <div class="home-main-container">
     <div class="home-position-container">
       <div class="home-title">Zachary Springer</div>
-      <div class="home-sub-title">Web Design</div>
+      <div class="home-sub-title">Web Designer</div>
       <div class="home-carousel-container" ref="carouselContainer" id="carousel-container"> 
         <transition 
           v-on:enter="enter"
@@ -30,10 +30,10 @@ export default {
   },
   data() {
     return {
-      carouselText: ['Simplified', 'Intuitive', 'Creative'],
+      carouselText: ['Passion', 'Creativity', 'Ambition'],
       startingPosition: 0,
       fadein: true,
-      currentText: 'Simplified',
+      currentText: 'Passion',
       carouselParent: {}
     }
   },
@@ -55,18 +55,15 @@ export default {
         this.carouselParent = parent;
         beginAnimation(parent.clientWidth)
       }
-      //1. get width of element 
-      //2. get width of parent element 
-      //3. calc width of either side => parentWidth - childWidth / 2;
-      //4. set margin left and margin right to be the above calced value
       function beginAnimation(parentWidth) {
         let adjustedWidth = parentWidth - el.clientWidth;
-        let initialX = adjustedWidth / 4 + 'px';
+        // let initialX = adjustedWidth / 4 + 'px';
+        let initialX = (adjustedWidth / 2) - 100 + 'px';
         let transitionX = adjustedWidth / 2 + 'px';
         Velocity(el, {
           transform: [ `translateX(${transitionX})`, `translateX(${initialX})`], 
           opacity: [1, 0] }, 
-          {duration: 4000,
+          {duration: 3000,
            complete: wrapUp})
         function wrapUp() {
           objToReference.fadein = false;
@@ -78,12 +75,13 @@ export default {
       let parentWidth = this.carouselParent.clientWidth;
       let adjustedWidth = parentWidth - el.clientWidth;
       let initialX = adjustedWidth / 2 + 'px';
-      let transitionX = (adjustedWidth / 4) * 3 + 'px';
+      // let transitionX = (adjustedWidth / 4) * 3 + 'px';
+      let transitionX = (adjustedWidth / 2) + 100 + 'px';
       setTimeout(() => {
         Velocity(el, {
         transform: [`translateX(${transitionX})`, `translateX(${initialX})`], 
-        opacity: [0, 1] }, {duration: 4000, complete: done})
-      },4000)
+        opacity: [0, 1] }, {duration: 3000, complete: done})
+      },3000)
     },
     afterLeave(el) {
         this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
@@ -120,7 +118,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 44px;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 2.5px 2.5px 5px black;
   letter-spacing: 6px;
 }
 .home-sub-title {
@@ -130,7 +128,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  text-shadow: 1px 1px 3px black;
+  text-shadow: 1.5px 1.5px 3px black;
   letter-spacing: 4px;
 }
 .home-carousel-container {

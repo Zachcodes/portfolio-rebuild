@@ -1,11 +1,17 @@
 <template>
   <div class="about-main-container">
-    <div class="about-content-main-container">
+    <div class="about-content-left-container">
       <div class="about-picture-container"></div>
+    </div> 
+    <div class="about-content-right-container">
       <div class="about-text"> 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit erat eget vestibulum feugiat. Curabitur vel pellentesque lacus. Nunc ac magna rutrum, consequat erat ac, faucibus enim. Vivamus vel dolor sit amet libero euismod laoreet. Aenean id egestas massa, ac tristique tellus. Fusce aliquet hendrerit suscipit. Morbi porta velit at nunc placerat, rhoncus lobortis nibh volutpat. Quisque cursus quam elit, eu condimentum metus congue nec. Quisque dapibus leo in sollicitudin tincidunt. Donec neque ipsum, placerat vitae orci a, molestie ornare orci. Donec dapibus lacus sed ex dictum porttitor sed nec metus. Morbi vel sollicitudin odio, non mattis purus. Mauris euismod scelerisque elit non semper. Aenean vitae urna ut enim fermentum laoreet non sed nunc.
-
-        Cras blandit, augue ac ullamcorper accumsan, erat sapien vehicula enim, ut malesuada magna risus sed risus. Nullam quis quam nunc. Proin nisi magna, venenatis pulvinar magna at, dapibus cursus leo. Cras sed gravida nisl. Aliquam vehicula leo justo, non pulvinar odio feugiat nec. Vivamus vel augue vitae diam iaculis ornare. Praesent sed mi lacus. Donec feugiat tincidunt dignissim. Praesent ut venenatis lacus, eu convallis lacus. Pellentesque sit amet ligula a nibh blandit semper. Nullam odio sapien, tempus nec euismod sit amet, interdum nec velit. Fusce in tristique lorem, ut lobortis nibh. Ut pharetra, ex sit amet aliquam tempus, erat lectus volutpat quam, sed posuere leo augue eu lacus. Aliquam ac lacus dolor.
+        I'm a Web Designer from Utah. I work as a full time mentor for DevMountain where I get to teach students to code and I love it. Going to DevMountain was one of the best career decisions I ever made and I'm glad that I get to give back. 
+        <br>
+        <br>
+        My first job out of DevMountain was at Ivinex where I worked as a software Engineer. Working at Ivinex was an amazing opportunity and I learned a lot. Nowadays, whenever I'm not working with students, you can find me building a passion project or expanding my skillset.
+        <br>
+        <br>
+        On my free time I enjoy working out, climbing, running, spending time with friends and gaming. 
       </div>
     </div>
     <SocialMediaContainer/>
@@ -32,13 +38,21 @@ export default {
 .about-main-container {
   min-height: 80vh;
   display: flex;
-  justify-content: center;
-  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
-.about-content-main-container {
+.about-content-left-container {
   width: 40%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-content-right-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 .about-picture-container {
   background-image: url('https://avatars2.githubusercontent.com/u/22923676?s=460&v=4');
@@ -47,9 +61,13 @@ export default {
   background-size: cover;
   height: 325px;
   width: 325px;
-  margin-bottom: 10px;
 }
 .about-text {
-  width: 325px;
+  color: white;
+  font-size: 16px;
+  text-shadow: .5px .5px 1px black;
+  line-height: 18px;
+  letter-spacing: 2.5px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 </style>
