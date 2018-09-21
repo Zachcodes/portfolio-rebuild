@@ -19,14 +19,15 @@
           appear
         > -->
         <transition 
-          v-on:before-enter="beforeEnter"
           v-on:enter="enter"
           v-on:leave="leave"
           v-on:after-leave="afterLeave"
-          name="fade"
+          v-bind:css="false"
+          name="test"
           appear
         >
-          <div class="testing" v-show="fadein" :key="currentText">{{currentText}}</div>
+          <div class="fade-enter" v-show="fadein" :key="currentText">{{currentText}}</div>
+          <!-- <div v-show="fadein" :key="currentText">{{currentText}}</div> -->
         </transition>
       </div>
       <!-- Beginning of else
@@ -68,30 +69,24 @@ export default {
     }
   },
   methods: {
-    beforeEnter(e) {
-      e.classList.add('fade-start')
-      console.log(e.classList)
-      // e.style.opacity = 0;
-      // e.style.marginRight = 'auto'
-      // e.style.marginLeft = '0'
-    },
     enter(el, done) {
-      console.log(23423423)
-      // Velocity(el, {left: '50%', opacity: 1}, {duration: 3000, complete: done})
-      //TODO: calculate the width of the parent, then calculate the width of the div, then set left 
-      // Velocity(el, {marginLeft: 'auto', 
-      //               marginRight: 'auto', 
-      //               opacity: 1}, {duration: 3000, complete: done})
-      el.classList.add('fade-middle')
-      this.fadein = false;
-      done()
+      Velocity(el, {
+        // transform: [ "translate(50%, 50%)", "translate(25%, 25%)"], 
+        transform: [ "translateX(50%)", "translateX(25%)"], 
+        opacity: [1, 0] }, {duration: 3000, complete: wrapUp})
+      let objToReference = this;
+      function wrapUp() {
+        objToReference.fadein = false;
+        done()
+      }
     },
     leave(el, done) {
 
       setTimeout(() => {
-        // Velocity(el, {marginLeft: 'auto', opacity: 0}, {duration: 3000, complete: done})
-        el.classList.add('fade-end')
-        // el.classList.add('fade-end')
+        Velocity(el, {
+        // transform: [ "translate(75%, 0)", "translate(50%, 50%)"], 
+        transform: [ "translateX(75%)", "translateX(50%)"], 
+        opacity: [0, 1] }, {duration: 3000, complete: done})
       },5000)
     },
     afterLeave(el) {
@@ -115,7 +110,7 @@ export default {
   align-items: center;
 }
 .home-position-container {
-  width: 50%;
+  width: 70%;
   height: 30%;
   display: flex;
   flex-direction: column;
@@ -128,7 +123,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  /* font-size: 48px; */
+  font-size: 30px;
   text-shadow: 2px 2px 5px black;
   letter-spacing: 6px;
 }
@@ -146,8 +142,9 @@ export default {
   height: 25%;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   /* align-items: center; */
+  align-items: center;
   position: relative;
 }
 .home-carousel-text {
@@ -161,21 +158,37 @@ export default {
   letter-spacing: 2px;
   position: relative;
 }
-.testing {
-  position: relative;
-}
-
-.fade-start {
+.fade-enter {
   opacity: 0;
-  left: 0;
+  position: relative;
+  width: 100%;
+  /* animation-name: fade-in;
+  animation-duration: 4s;
+  animation-fill-mode: forwards; */
 }
-/* .fade-middle {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-  transition: all 3s;
-} */
-.fade-end {
-  transform: translate(-100%, 0);
-  transition: transform 3s;
+.fade-leave {
+  animation-name: fade-exit;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(0, 0)
+  }
+  to {
+    opacity: 1;
+    transform: translate(50%, 50%);
+  }
+}
+@keyframes fade-exit {
+  from {
+    opacity: 1;
+    transform: translate(50%, 50%)
+  }
+  to {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
 }
 </style>
