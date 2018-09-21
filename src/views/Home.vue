@@ -3,21 +3,7 @@
     <div class="home-position-container">
       <div class="home-title">Zachary Springer</div>
       <div class="home-sub-title">Web Design</div>
-      <!-- Beginning of if -->
-      <div class="home-carousel-container"> 
-        <!-- <transition 
-          name="fadein"
-
-          appear
-        > -->
-        <!-- <transition 
-          v-on:before-enter="beforeEnter"
-          v-on:enter="enter"
-          v-on:leave="leave"
-          v-on:after-leave="afterLeave"
-          v-bind:css="false"
-          appear
-        > -->
+      <div class="home-carousel-container" ref="carouselContainer" id="carousel-container"> 
         <transition 
           v-on:enter="enter"
           v-on:leave="leave"
@@ -26,27 +12,9 @@
           name="test"
           appear
         >
-          <div class="fade-enter" v-show="fadein" :key="currentText">{{currentText}}</div>
-          <!-- <div v-show="fadein" :key="currentText">{{currentText}}</div> -->
+          <div class="fade-base" v-if="fadein" :key="currentText" ref="carouselText">{{currentText}}</div>
         </transition>
       </div>
-      <!-- Beginning of else
-      <div class="home-carousel-container" v-else> 
-        <transition 
-          v-if="fadeout"
-          name="fadeout"
-          appear
-        >
-          <div class="testing">{{currentCarouselValue}}</div>
-        </transition>
-        <transition 
-          v-else
-          name="fadein"
-          appear
-        >
-          <div class="testing">{{currentCarouselValue}}</div>
-        </transition>
-      </div> -->
     </div>
     <SocialMediaContainer/>
   </div>
@@ -65,29 +33,57 @@ export default {
       carouselText: ['Simplified', 'Intuitive', 'Creative'],
       startingPosition: 0,
       fadein: true,
-      currentText: 'Simplified'
+      currentText: 'Simplified',
+      carouselParent: {}
     }
   },
   methods: {
     enter(el, done) {
-      Velocity(el, {
-        // transform: [ "translate(50%, 50%)", "translate(25%, 25%)"], 
-        transform: [ "translateX(50%)", "translateX(25%)"], 
-        opacity: [1, 0] }, {duration: 3000, complete: wrapUp})
       let objToReference = this;
-      function wrapUp() {
-        objToReference.fadein = false;
-        done()
+      let parent = document.getElementById('carousel-container')
+      if(!parent) {
+        let intervalId = setInterval(() => {
+          let parent = document.getElementById('carousel-container')
+          if(parent) {
+            clearInterval(intervalId)
+            this.carouselParent = parent;
+            beginAnimation(parent.clientWidth)
+          } 
+        }, 100)
+      }
+      else {
+        this.carouselParent = parent;
+        beginAnimation(parent.clientWidth)
+      }
+      //1. get width of element 
+      //2. get width of parent element 
+      //3. calc width of either side => parentWidth - childWidth / 2;
+      //4. set margin left and margin right to be the above calced value
+      function beginAnimation(parentWidth) {
+        let adjustedWidth = parentWidth - el.clientWidth;
+        let initialX = adjustedWidth / 4 + 'px';
+        let transitionX = adjustedWidth / 2 + 'px';
+        Velocity(el, {
+          transform: [ `translateX(${transitionX})`, `translateX(${initialX})`], 
+          opacity: [1, 0] }, 
+          {duration: 4000,
+           complete: wrapUp})
+        function wrapUp() {
+          objToReference.fadein = false;
+          done()
+        }
       }
     },
     leave(el, done) {
-
+      let parentWidth = this.carouselParent.clientWidth;
+      let adjustedWidth = parentWidth - el.clientWidth;
+      let initialX = adjustedWidth / 2 + 'px';
+      let transitionX = (adjustedWidth / 4) * 3 + 'px';
       setTimeout(() => {
         Velocity(el, {
-        // transform: [ "translate(75%, 0)", "translate(50%, 50%)"], 
-        transform: [ "translateX(75%)", "translateX(50%)"], 
-        opacity: [0, 1] }, {duration: 3000, complete: done})
-      },5000)
+        transform: [`translateX(${transitionX})`, `translateX(${initialX})`], 
+        opacity: [0, 1] }, {duration: 4000, complete: done})
+      },4000)
     },
     afterLeave(el) {
         this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
@@ -123,8 +119,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-size: 48px; */
-  font-size: 30px;
+  font-size: 44px;
   text-shadow: 2px 2px 5px black;
   letter-spacing: 6px;
 }
@@ -142,8 +137,6 @@ export default {
   height: 25%;
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
   align-items: center;
   position: relative;
 }
@@ -158,37 +151,13 @@ export default {
   letter-spacing: 2px;
   position: relative;
 }
-.fade-enter {
+.fade-base {
   opacity: 0;
   position: relative;
-  width: 100%;
-  /* animation-name: fade-in;
-  animation-duration: 4s;
-  animation-fill-mode: forwards; */
+  /* width: 100%; */
+  font-size: 20px;
+  text-shadow: .5px .5px 1px black;
+  letter-spacing: 2px;
 }
-.fade-leave {
-  animation-name: fade-exit;
-  animation-duration: 4s;
-  animation-fill-mode: forwards;
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translate(0, 0)
-  }
-  to {
-    opacity: 1;
-    transform: translate(50%, 50%);
-  }
-}
-@keyframes fade-exit {
-  from {
-    opacity: 1;
-    transform: translate(50%, 50%)
-  }
-  to {
-    opacity: 0;
-    transform: translate(100%, 0);
-  }
-}
+
 </style>
