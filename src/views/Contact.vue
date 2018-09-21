@@ -1,15 +1,6 @@
 <template>
   <div class="contact-main-container">
     <form class="contact-form-container" v-on:submit.prevent="handleSubmit" autocomplete="off">
-      <!-- <div>
-        <label>Name</label> <input class="contact-input" v-model="name"/>
-      </div>
-      <div>
-        <label>Email</label> <input class="contact-input" v-model="email"/>
-      </div> 
-      <div>
-        <label>Message</label> <input class="contact-input" v-model="message"/>
-      </div> -->
       <input autocomplete="off" class="contact-input" v-model="name" placeholder="Name"/>
       <input autocomplete="off" class="contact-input" v-model="email" placeholder="Email"/>
       <input class="contact-input" v-model="message" placeholder="Message"/>
