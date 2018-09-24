@@ -3,6 +3,7 @@
     <PortfolioMiniContainer v-for="project in projects"
     :key="project.id"
     :projectId="project.id"
+    :projectName="project.name"
     ></PortfolioMiniContainer>
     <SocialMediaContainer/>
   </div>
@@ -22,16 +23,20 @@ export default {
     return {
       projects: [
         {
-          id: 1
+          id: 1,
+          name: 'test1'
         },
         {
-          id: 2
+          id: 2,
+          name: 'test2'
         },
         {
-          id: 3
+          id: 3,
+          name: 'test3'
         },
         {
-          id: 4
+          id: 4,
+          name: 'test4'
         }
       ]
     }

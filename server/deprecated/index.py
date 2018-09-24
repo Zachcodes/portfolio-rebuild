@@ -6,11 +6,17 @@ load_dotenv()
 import os 
 HOST_EMAIL = os.getenv("HOST_EMAIL")
 HOST_PASSWORD = os.getenv("HOST_PASSWORD")
+DATABASE_URL = os.getenv("DATABASE_URL")
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+# import psycopg2
 
-
+# conn = psycopg2.connect(DATABASE_URL)
+# cur = conn.cursor()
+# cur.execute("CREATE TABLE test (id serial PRIMARY KEY, num integer, data varchar);")
+# cur.execute("INSERT INTO test (num, data) VALUES (%s, %s)", (100, "abc'def"))
+# conn.commit()
 s = smtplib.SMTP(host='smtp.gmail.com', port=587)
 s.starttls()
 s.login(HOST_EMAIL, HOST_PASSWORD)

@@ -5,6 +5,7 @@ import Blog from './views/Blog.vue'
 import Contact from './views/Contact.vue'
 import About from './views/About.vue'
 import Portfolio from './views/Portfolio.vue'
+import Project from './views/Project.vue'
 
 Vue.use(Router)
 
@@ -37,5 +38,10 @@ export default new Router({
       name: 'portfolio',
       component: Portfolio
     },
+    {
+      path: '/project/:projectName',
+      name: 'project',
+      component: Project
+    }
   ]
 })

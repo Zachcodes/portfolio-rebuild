@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-mini-container" v-on:mouseover="setHover">
-    <button class="view-more-button" ref="viewMore">View More</button>
+    <router-link :to="{name: 'project', params: {projectName: projectName}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
     <div class="portfolio-mini-container-film" ref="film"></div>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'portfolioMiniContainer',
-  props: ['projectId'],
+  props: ['projectId', 'projectName'],
   methods: {
       setHover() {
           let {film, viewMore} = this.$refs;
