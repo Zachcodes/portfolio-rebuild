@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-mini-container" v-on:mouseover="setHover">
-    <router-link :to="{name: 'project', params: {projectName: projectName}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
+    <router-link :to="{name: 'project', query: {projectName: projectName, projectId: projectId}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
     <div class="portfolio-mini-container-film" ref="film"></div>
   </div>
 </template>

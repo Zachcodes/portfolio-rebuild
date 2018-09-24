@@ -12,6 +12,7 @@
 <script>
 import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 import PortfolioMiniContainer from '../components/PortfolioMiniContainer.vue'
+import axios from 'axios';
 
 export default {
   name: 'portfolio',
@@ -21,25 +22,13 @@ export default {
   },
   data() {
     return {
-      projects: [
-        {
-          id: 1,
-          name: 'test1'
-        },
-        {
-          id: 2,
-          name: 'test2'
-        },
-        {
-          id: 3,
-          name: 'test3'
-        },
-        {
-          id: 4,
-          name: 'test4'
-        }
-      ]
+      projects: []
     }
+  },
+  mounted() {
+    axios.get(`/api/projects`).then(response => {
+      this.projects = response.data
+    })
   }
 }
 </script>

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Massive = require('massive');
+const pc = require('./Controllers/projectController')
 
 require('dotenv').config();
 
@@ -12,6 +13,9 @@ app.use(bodyParser.json())
 Massive(process.env.CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
 })
+
+app.get('/api/projects', pc.getAllProjects)
+app.get('/api/projects/:projectId', pc.getProject)
 
 
 app.listen(process.env.SERVER_PORT, () => {
