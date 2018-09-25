@@ -1,19 +1,37 @@
 <template>
-  <div class="portfolio-mini-container" v-on:mouseover="setHover">
-    <router-link :to="{name: 'project', query: {projectName: projectName, projectId: projectId}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
-    <div class="portfolio-mini-container-film" ref="film"></div>
+  <div class="portfolio-mini-container" 
+       :style="imageClass" 
+       v-on:mouseover="checkHover"
+       v-on:mouseout="checkHover">
+    <div class="portfolio-mini-container-film" ref="film">
+        <router-link :to="{name: 'project', query: {projectName: projectName, projectId: projectId}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'portfolioMiniContainer',
-  props: ['projectId', 'projectName'],
+  props: ['projectId', 'projectName', 'image'],
   methods: {
-      setHover() {
+      checkHover() {
           let {film, viewMore} = this.$refs;
-          film.classList.add('show-on-hover')
-          viewMore.classList.add('show-on-hover')
+          if(film.classList.contains('show-on-hover')) film.classList.remove('show-on-hover')
+          else film.classList.add('show-on-hover')
+          if(viewMore.classList.contains('show-on-hover')) viewMore.classList.remove('show-on-hover')
+          else viewMore.classList.add('show-on-hover')
+        //   if(!film.classList.contains('show-on-hover')) film.classList.add('show-on-hover')
+        //   if(!viewMore.classList.contains('show-on-hover')) viewMore.classList.add('show-on-hover')
+      }
+  },
+  data() {
+      return {
+          imageClass: {
+              backgroundImage: `url(${this.$props.image})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover'
+          }
       }
   }
 }
@@ -28,16 +46,23 @@ export default {
     position: relative;
 }
 .view-more-button {
+    position: relative;
+    background-color: white;
+    z-index: 1000;
     display: none;
 }
 .portfolio-mini-container-film {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: grey;
+    background-color: #80808069;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: none;
 }
 .show-on-hover {
-    display: inline-block;
+    display: flex;
 }
 </style>

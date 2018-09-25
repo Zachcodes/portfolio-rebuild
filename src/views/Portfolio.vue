@@ -4,6 +4,7 @@
     :key="project.id"
     :projectId="project.id"
     :projectName="project.name"
+    :image="project.link"
     ></PortfolioMiniContainer>
     <SocialMediaContainer/>
   </div>
