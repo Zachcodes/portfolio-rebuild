@@ -4,7 +4,11 @@
        v-on:mouseover="checkHover"
        v-on:mouseout="checkHover">
     <div class="portfolio-mini-container-film" ref="film">
-        <router-link :to="{name: 'project', query: {projectName: projectName, projectId: projectId}}"><button class="view-more-button" ref="viewMore">View More</button></router-link>
+        <router-link :to="{name: 'project', query: {projectName: projectName, projectId: projectId}}">
+            <button class="view-more-button" 
+            ref="viewMore"
+            >View More</button>
+        </router-link>
     </div>
   </div>
 </template>
@@ -45,11 +49,31 @@ export default {
     margin-bottom: 20px;
     position: relative;
 }
+.portfolio-mini-container a {
+    text-decoration: none;
+}
 .view-more-button {
     position: relative;
     background-color: white;
-    z-index: 1000;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 6px;
+    font-size: 16px;
     display: none;
+}
+.view-more-button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    outline: none;
+    box-shadow: 1px 2px 2px black;
+    cursor: pointer;
 }
 .portfolio-mini-container-film {
     position: absolute;
