@@ -1,7 +1,6 @@
 <template>
     <div>
-        <span v-if="doneLoading">{{projectDetails.description}}</span>
-        <span v-else>Loading!</span>
+        <span>{{projectDetails.description}}</span>
     </div>
 </template>
 
@@ -13,16 +12,18 @@ export default {
     data() {
         return {
             projectDetails: {},
-            projectPictures: [],
-            doneLoading: false
+            projectPictures: []
         }
     },
     mounted() {
         let {projectId} = this.$route.query
-        axios.get(`/api/projects/${projectId}`).then(response => {
+        axios.get(`/api/projects/${projectId}`).then(response => { 
             this.projectDetails = response.data;
+            console.log(response.data.pictureLinks)
+            let sorted = response.data.pictureLinks.sort((a, b) => {
+                if(a.)
+            })
             this.projectPictures = response.data.pictureLinks;
-            this.doneLoading = true;
         })
     }
 }
