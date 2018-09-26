@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="nav">
-      <div class="nav-name">Zachary Springer</div>
+      <div class="nav-logo-container">
+        <img src="./assets/logo1.svg" class="nav-logo">
+      </div>
       <router-link class="nav-links" to="/">Home</router-link>
       <router-link class="nav-links" to="/portfolio">Portfolio</router-link>
       <router-link class="nav-links" to="/about">About</router-link>
@@ -37,9 +39,15 @@ body {
   height: 7vh;
   padding: 0px 20px;
 }
-.nav-name {
+.nav-logo-container {
   margin-right: auto;
   color: white;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.nav-logo {
+  height: 100%;
 }
 .nav-links {
   padding: 0px 5px;
