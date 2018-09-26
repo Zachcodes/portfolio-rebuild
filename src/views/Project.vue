@@ -3,8 +3,11 @@
         <div class="project-pictures-main-container">
             <div class="project-picture-main" :style="mainDisplayedImage"></div> 
             <div class="project-picture-sub">
-                <div v-for="picture in projectPictures"
-                     :key="picture.project_image_id"></div>
+                <ProjectMiniImageContainer v-for="(picture, index) in projectPictures"
+                     :key="picture.project_image_id"
+                     :selected="index === startingPictureIndex"
+                     :link="picture.link"
+                     ></ProjectMiniImageContainer>
             </div>
         </div>
         <div class="project-about-main-container">
@@ -19,15 +22,19 @@
 
 <script>
 import axios from 'axios';
-
+import ProjectMiniImageContainer from '../components/ProjectMiniImageContainer.vue'
 export default {
     name: 'project',
     data() {
         return {
             projectDetails: {},
             projectPictures: [],
-            startingPictureIndex: 0
+            startingPictureIndex: 0,
+            intervalId: 0
         }
+    },
+    components: {
+        ProjectMiniImageContainer
     },
     computed: {
         mainDisplayedImage() {
@@ -52,6 +59,14 @@ export default {
             })
             this.projectPictures = sortedByType;
         })
+    },
+    updated() {
+        if(this.projectPictures.length && !this.intervalId) {
+            let cbRef = this;
+            this.intervalId = setInterval(() => {
+                cbRef.startingPictureIndex === cbRef.projectPictures.length - 1 ? cbRef.startingPictureIndex = 0 : cbRef.startingPictureIndex += 1;
+            }, 5000)
+        }
     }
 }
 </script>
