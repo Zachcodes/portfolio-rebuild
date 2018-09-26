@@ -6,6 +6,8 @@ module.exports = {
         let {projectId} = req.params
         let project = await db.getProjectId({projectId})
         let formattedProject = formatProject(project)
+        let techUsed = await db.getTechUsed({projectId})
+        formattedProject.techUsed = techUsed;
         res.status(200).send(formattedProject)
     },
     async getAllProjects(req, res) {

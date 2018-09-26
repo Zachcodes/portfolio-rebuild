@@ -32,6 +32,7 @@ export default {
 .mini-image-container {
     width: 20%;
     height: 100%;
+    margin: 0px 3px;
 }
 .mini-active {
     border: 1px solid blue;
