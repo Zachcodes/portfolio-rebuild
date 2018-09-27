@@ -91,12 +91,15 @@ body {
   width: 50%;
   display: flex;
   justify-content: flex-start;
-  z-index: 2000;
 }
 .nav-logo {
   height: 60px;
   width: 60px;
-  margin-top: 5px;
+  margin-top: 10px;
+  left: 10px;
+  z-index: 2000;
+  position: absolute;
+
 }
 .nav-links {
   padding: 0px 5px;
