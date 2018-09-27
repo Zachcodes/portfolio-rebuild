@@ -12,15 +12,8 @@
         </div>
         <div class="project-about-main-container">
             <div class="project-about-description">{{projectDetails.description}}</div>
-            <div class="project-tech-main-container">
-                <div class="project-tech">
-                    <span v-for="tech in techUsed"
-                          :key="tech.tech_id"
-                          class="tech-box">{{tech.tech_name}}</span>    
-                </div> 
-                <div class="project-view-button-container">
-                    <button class="project-view-button">View Project</button>
-                </div>
+            <div class="project-view-main-container">
+                <button class="project-view-button">View Project</button>
             </div>
         </div> 
     </div>
@@ -104,6 +97,8 @@ export default {
 .project-picture-main {
     height: 80%;
     width: 100%;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px black;
 } 
 .project-picture-sub {
     height: 20%;
@@ -120,25 +115,14 @@ export default {
 .project-about-description {
     height: 80%;
     width: 100%;
+    padding: 0px 10px;
 }
-.project-tech-main-container {
-    height: 20%;
+.project-view-main-container {
     width: 100%;
-    display: flex; 
-}
-.project-tech {
-    width: 60%;
-    height: 100%;
+    height: 20%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.project-view-button-container {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 .project-view-button {
     color: white;
@@ -160,16 +144,6 @@ export default {
     font-family: 'Nunito Sans', sans-serif;
     outline: none;
     box-shadow: 1px 2px 2px black;
-}
-.tech-box {
-    width: 30%;
-    height: 50px;
-    padding: 1px;
-    color: black;
-    background-color: white;
-    box-shadow: 1px 2px 2px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
 }
 </style>

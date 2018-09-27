@@ -48,6 +48,8 @@ export default {
     background-color: white;
     margin-bottom: 20px;
     position: relative;
+    border: 1px solid white;
+    box-shadow: 1.5px 2px 2px black;
 }
 .portfolio-mini-container a {
     text-decoration: none;

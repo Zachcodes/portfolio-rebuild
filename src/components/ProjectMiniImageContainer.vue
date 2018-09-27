@@ -33,8 +33,14 @@ export default {
     width: 20%;
     height: 100%;
     margin: 0px 3px;
+    border: 1px solid #ffffffa6;
+    box-shadow: .5px 1px 1px black;
 }
 .mini-active {
-    border: 1px solid blue;
+    width: 25%;
+    height: 110%;
+    transition: width .5s, height .5s;
+    border: 1px solid white;
+    box-shadow: 1.5px 2px 2px black;
 }
 </style>
