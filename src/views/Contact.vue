@@ -37,14 +37,11 @@ export default {
     handleSubmit() {
       axios({
         method: 'post',
-        url: 'http://localhost:5000/api/submitContact',
+        url: '/api/submitContact',
         data: {
           name: this.name,
           email: this.email,
           message: this.message
-        },
-        headers: {
-          'Access-Control-Allow-Origin': '*'
         }
       }).then(res => {
         this.name = ''
