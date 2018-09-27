@@ -4,18 +4,55 @@
       <div class="nav-logo-container">
         <img src="./assets/logo1.svg" class="nav-logo">
       </div>
-      <div class="nav-links-container"> 
+      <div class="nav-links-container" id="navLinksContainer"> 
         <router-link class="nav-links" to="/">Home</router-link>
         <router-link class="nav-links" to="/portfolio">Portfolio</router-link>
         <router-link class="nav-links" to="/about">About</router-link>
         <router-link class="nav-links" to="/blog">Blog</router-link>
         <router-link class="nav-links" to="/contact">Contact</router-link>
-        <font-awesome-icon :icon="{prefix: 'fas', iconName: 'bars'}" class="nav-hamburger"></font-awesome-icon>
+        <div class="nav-hamburger" 
+             id="fontAwesome"
+             v-on:mouseenter="checkDropdown($event, 'in')"
+             v-on:mouseleave="checkDropdown($event, 'out')">
+        <font-awesome-icon :icon="{prefix: 'fas', iconName: 'bars'}" 
+                           ></font-awesome-icon>
+        </div>
       </div>
     </div>
+    <div class="nav-dropdown hidden" 
+         id="navDropdown"
+         v-on:mouseleave="checkDropdown($event, 'out')"></div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'app',
+  data() {
+    return {
+      navDropdown: ''
+    }
+  },
+  methods: {
+    checkDropdown(e, direction) {
+      if(direction === 'out') {
+        let x = e.clientX, y = e.clientY 
+        let elementMouseIsOver = document.elementFromPoint(x, y)
+        let keepActiveIds = ['navLinksContainer', 'fontAwesome']
+        if(elementMouseIsOver && keepActiveIds.indexOf(elementMouseIsOver.id) === -1) {
+          let dropdown = document.getElementById('navDropdown')
+          dropdown.classList.add('hidden')
+        }
+      }
+      if(direction === 'in') {
+        let dropdown = document.getElementById('navDropdown')
+        dropdown.classList.remove('hidden') 
+      }
+    }
+  }
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
@@ -75,6 +112,15 @@ body {
   color: white;
   font-size: 26px;
 }
+.nav-dropdown {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  background-color: black;
+}
+.hidden {
+  display: none;
+}
 @media (max-width: 800px) {
   .nav-links {
     display: none;
@@ -84,7 +130,10 @@ body {
   }
 }
 @media (min-width: 800px) {
-  .nav-hamburger {
+  /* .nav-hamburger {
+    display: none;
+  } */
+   .nav-links {
     display: none;
   }
 }
