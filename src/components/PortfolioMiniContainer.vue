@@ -24,8 +24,6 @@ export default {
           else film.classList.add('show-on-hover')
           if(viewMore.classList.contains('show-on-hover')) viewMore.classList.remove('show-on-hover')
           else viewMore.classList.add('show-on-hover')
-        //   if(!film.classList.contains('show-on-hover')) film.classList.add('show-on-hover')
-        //   if(!viewMore.classList.contains('show-on-hover')) viewMore.classList.add('show-on-hover')
       }
   },
   data() {
@@ -44,7 +42,7 @@ export default {
 <style>
 .portfolio-mini-container {
     height: 175px;
-    width: 300px;
+    width: 40%;
     background-color: white;
     margin-bottom: 20px;
     position: relative;

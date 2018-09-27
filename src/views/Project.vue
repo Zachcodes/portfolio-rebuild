@@ -13,7 +13,7 @@
         <div class="project-about-main-container">
             <div class="project-about-description">{{projectDetails.description}}</div>
             <div class="project-view-main-container">
-                <button class="project-view-button">View Project</button>
+                <button class="project-view-button"><a :href="urlLink" target="_blank">View Project</a></button>
             </div>
         </div> 
     </div>
@@ -30,7 +30,8 @@ export default {
             projectPictures: [],
             techUsed: [],
             startingPictureIndex: 0,
-            intervalId: 0
+            intervalId: 0,
+            urlLink: ''
         }
     },
     components: {
@@ -54,6 +55,7 @@ export default {
         axios.get(`/api/projects/${projectId}`).then(response => { 
             this.projectDetails = response.data;
             this.techUsed = response.data.techUsed;
+            this.urlLink = response.data.url_link;
             let sortedByType = response.data.pictureLinks.sort((a, b) => {
                 if(a.type_id === 1) return -1 
                 else return 1
@@ -145,5 +147,12 @@ export default {
     outline: none;
     box-shadow: 1px 2px 2px black;
     cursor: pointer;
+}
+.project-view-button a {
+    text-decoration: none;
+    color: white;
+}
+.project-view-button a:hover {
+    color: black;
 }
 </style>
