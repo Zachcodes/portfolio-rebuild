@@ -21,7 +21,13 @@
     </div>
     <div class="nav-dropdown hidden" 
          id="navDropdown"
-         v-on:mouseleave="checkDropdown($event, 'out')"></div>
+         v-on:mouseleave="checkDropdown($event, 'out')">
+      <div class="nav-dropdown-div" v-on:click="hideDropdown('/')">Home</div>  
+      <div class="nav-dropdown-div" v-on:click="hideDropdown('/portfolio')">Portfolio</div>  
+      <div class="nav-dropdown-div" v-on:click="hideDropdown('/about')">About</div>     
+      <div class="nav-dropdown-div" v-on:click="hideDropdown('/blog')">Blog</div>     
+      <div class="nav-dropdown-div nav-dropdown-div-bottom" v-on:click="hideDropdown('/contact')">Contact</div>     
+    </div>
     <router-view/>
   </div>
 </template>
@@ -49,6 +55,11 @@ export default {
         let dropdown = document.getElementById('navDropdown')
         dropdown.classList.remove('hidden') 
       }
+    },
+    hideDropdown(route) {
+      this.$router.push(route)
+      let dropdown = document.getElementById('navDropdown')
+      dropdown.classList.add('hidden')
     }
   }
 }
@@ -72,12 +83,15 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   height: 7vh;
+  background: black;
+  border-bottom: .25px solid white;
 }
 .nav-logo-container {
   height: 100%;
   width: 50%;
   display: flex;
   justify-content: flex-start;
+  z-index: 2000;
 }
 .nav-logo {
   height: 60px;
@@ -97,7 +111,7 @@ body {
   transition: font-size .3s;
 }
 .nav-links:hover {
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid white;
   text-shadow: .9px .9px 2px black;
   font-size: 18px;
 }
@@ -111,29 +125,41 @@ body {
 .nav-hamburger {
   color: white;
   font-size: 26px;
+  margin-right: 10px;
 }
 .nav-dropdown {
   position: absolute;
   height: 200px;
   width: 100%;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
 }
 .hidden {
   display: none;
 }
-@media (max-width: 800px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-hamburger {
-    margin-right: 15px;
-  }
+.nav-dropdown-div {
+  width: 100%;
+  height: 20%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-top: .25px solid white;
+  border-bottom: .25px solid white;
+}
+.nav-dropdown-div-bottom {
+  border-bottom: .5px solid white;
 }
 @media (min-width: 800px) {
-  /* .nav-hamburger {
+  .nav-hamburger {
     display: none;
-  } */
-   .nav-links {
+  }
+}
+@media (max-width: 800px) {
+  .nav-links {
     display: none;
   }
 }
