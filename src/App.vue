@@ -26,7 +26,11 @@ body {
   /* background-image: linear-gradient(to bottom right, white, rgb(112,101,101,1), black); */
   /* background-image: linear-gradient(to bottom right, black, rgb(9, 98, 112), rgb(65, 189, 209)); */
   /* background: rgb(65, 189, 209); */
-  background: rgb(42, 183, 206);
+  /* background: rgb(42, 183, 206); */
+  /* background: rgb(36, 99, 109); */
+  background-image: linear-gradient(to bottom, rgb(36, 99, 109), rgb(42, 183, 206));
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   /* background-repeat: no-repeat; */
   height: 100%;
   /* background-attachment: fixed; */

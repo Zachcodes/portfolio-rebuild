@@ -6,7 +6,7 @@ module.exports = {
         ${message}`
         let mailOptions = {
             from: email,
-            to: 'zaspringer@gmail.com',
+            to: process.env.HOST_EMAIL,
             subject: `Portfolio Site Automatic Email`,
             text: message
         }
