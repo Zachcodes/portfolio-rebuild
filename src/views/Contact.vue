@@ -44,9 +44,12 @@ export default {
           message: this.message
         }
       }).then(res => {
+        this.$toasted.show('Successfully sent email', {type: 'success', duration: 2000})
         this.name = ''
         this.email = ''
         this.message = ''
+      }).catch( err => {
+        this.$toasted.show('Something went wrong', {type: 'error', duration: 2000})
       })
     }
   },

@@ -22,7 +22,8 @@
     "massive": "^5.4.0",
     "nodemailer": "^4.6.8",
     "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-toasted": "^1.1.24"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
