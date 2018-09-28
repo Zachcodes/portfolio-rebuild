@@ -3,8 +3,7 @@
     <form class="contact-form-container" v-on:submit.prevent="handleSubmit" autocomplete="off">
       <input autocomplete="off" class="contact-input" v-model="name" placeholder="Name"/>
       <input autocomplete="off" class="contact-input" v-model="email" placeholder="Email"/>
-      <input class="contact-input" v-model="message" placeholder="Message"/>
-      <!-- <font-awesome-icon :icon="{prefix: 'fas', iconName: 'times-circle'}"></font-awesome-icon> -->
+      <textarea class="contact-input text-area" v-model="message" placeholder="Message"/>
       <div class="contact-input-container">
         <button 
         class="contact-submit-button"
@@ -83,6 +82,7 @@ export default {
   background-color: transparent;
   border: none;
   border-bottom: .5px solid black;
+  padding-left: 5px;
   margin-bottom: 10px;
   width: 100%;
   max-width: 250px;
@@ -136,5 +136,14 @@ export default {
   font-family: 'Nunito Sans', sans-serif;
   outline: none;
   box-shadow: 1px 2px 2px black;
+  cursor: pointer;
+}
+.text-area {
+  height: 50px;
+}
+@media (max-width: 800px) {
+  .contact-input {
+    margin-bottom: 15px;
+  }
 }
 </style>

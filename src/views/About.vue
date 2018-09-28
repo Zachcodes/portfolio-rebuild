@@ -70,4 +70,16 @@ export default {
   letter-spacing: 2.5px;
   font-family: 'Josefin Sans', sans-serif;
 }
+@media (max-width: 800px) {
+  .about-main-container {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  .about-content-left-container {
+    width: 100%;
+  }
+  .about-content-right-container {
+    width: 100%;
+  }
+}
 </style>
