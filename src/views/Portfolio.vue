@@ -45,4 +45,10 @@ export default {
   padding-left: 25px;
   padding-right: 25px;
 }
+@media (max-width: 800px) {
+  .portfolio-main-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 </style>

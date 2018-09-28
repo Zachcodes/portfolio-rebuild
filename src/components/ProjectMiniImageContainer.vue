@@ -1,6 +1,7 @@
 <template>
-    <div v-bind:class="[selected ? miniActive : '', miniImageContainer]" :style="imageClass">
-
+    <!-- <div v-bind:class="[selected ? miniActive : '', miniImageContainer]" :style="imageClass"> -->
+    <div v-bind:class="[selected ? miniActive : '', miniImageContainer]">
+        <img :src="imageClass" class="mini-image"/>
     </div>
 </template>
 
@@ -17,12 +18,13 @@ export default {
     computed: {
         imageClass() {
             let link = this.$props.link
-            return {
-                backgroundImage: `url(${link})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-            }
+            return link;
+            // return {
+            //     backgroundImage: `url(${link})`,
+            //     backgroundRepeat: 'no-repeat',
+            //     backgroundPosition: 'center center',
+            //     backgroundSize: 'auto 100%'
+            // }
         }
     }
 }
@@ -42,5 +44,9 @@ export default {
     transition: width .5s, height .5s;
     border: 1px solid white;
     box-shadow: 1.5px 2px 2px black;
+}
+.mini-image {
+    width: 100%;
+    height: 100%;
 }
 </style>

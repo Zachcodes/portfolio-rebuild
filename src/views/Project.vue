@@ -1,7 +1,9 @@
 <template>
     <div class="project-main-container">
         <div class="project-pictures-main-container">
-            <div class="project-picture-main" :style="mainDisplayedImage"></div> 
+            <div class="project-picture-main">
+                <img :src="mainDisplayedImage" class="project-picture"/> 
+            </div> 
             <div class="project-picture-sub">
                 <ProjectMiniImageContainer v-for="(picture, index) in projectPictures"
                      :key="picture.project_image_id"
@@ -44,12 +46,13 @@ export default {
         mainDisplayedImage() {
             if(this.projectPictures.length) {
                 let link = this.projectPictures[this.startingPictureIndex].link;
-                return {
-                    backgroundImage: `url(${link})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover'
-                }
+                // return {
+                //     backgroundImage: `url(${link})`,
+                //     backgroundRepeat: 'no-repeat',
+                //     backgroundPosition: 'center center',
+                //     backgroundSize: 'auto 100%'
+                // }
+                return link;
             }
         }
     },
@@ -94,7 +97,7 @@ export default {
     font-family: 'Josefin Sans', sans-serif;
 }
 .project-pictures-main-container {
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -105,14 +108,19 @@ export default {
     border: 1px solid white;
     box-shadow: 2px 2px 2px black;
 } 
+.project-picture {
+    height: 100%;
+    width: 100%;
+}
 .project-picture-sub {
     height: 20%;
     width: 100%;
     display: flex;
+    justify-content: space-between;
     padding: 5px 0px;
 }
 .project-about-main-container {
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;

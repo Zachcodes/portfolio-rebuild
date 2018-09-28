@@ -1,6 +1,5 @@
 <template>
   <div class="portfolio-mini-container" 
-       :style="imageClass" 
        v-on:mouseover="checkHover"
        v-on:mouseout="checkHover">
     <div class="portfolio-mini-container-film" ref="film">
@@ -10,6 +9,7 @@
             >View More</button>
         </router-link>
     </div>
+    <img :src="image" class="portfolio-mini"/>
   </div>
 </template>
 
@@ -31,9 +31,10 @@ export default {
           imageClass: {
               backgroundImage: `url(${this.$props.image})`,
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              backgroundSize: 'cover'
-          }
+              backgroundPosition: 'center center',
+              backgroundSize: 'auto 100%'
+          },
+          image: this.$props.image
       }
   }
 }
@@ -41,7 +42,7 @@ export default {
 
 <style>
 .portfolio-mini-container {
-    height: 175px;
+    height: 250px;
     width: 40%;
     background-color: white;
     margin-bottom: 20px;
@@ -88,5 +89,17 @@ export default {
 }
 .show-on-hover {
     display: flex;
+}
+.portfolio-mini {
+    height: 100%;
+    width: 100%;
+}
+@media (max-width: 800px) {
+    .portfolio-mini-container {
+        width: 100%;
+        height: 325px;
+        border-left: none;
+        border-right: none;
+    }
 }
 </style>
