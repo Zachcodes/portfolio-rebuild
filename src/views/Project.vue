@@ -166,4 +166,30 @@ export default {
 .project-view-button a:hover {
     color: black;
 }
+@media (max-width: 800px) {
+    .project-main-container {
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+        height: auto;
+    }
+    .project-pictures-main-container {
+        width: 100%;
+        height: 350px;
+    }
+    .project-picture-main {
+        height: 100%;
+    }
+    .project-picture {
+        height: 100%;
+    }
+    .project-picture-sub {
+        display: none;
+    }
+    .project-about-main-container {
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+    }
+}
 </style>
