@@ -157,5 +157,21 @@ export default {
   text-shadow: .5px .5px 1px black;
   letter-spacing: 2px;
 }
-
+@media (max-width: 600px) {
+  .home-position-container {
+    width: 100%;
+  }
+  .home-title {
+    font-size: 36px;
+    text-shadow: 2.5px 2.5px 5px black;
+    letter-spacing: 5px;
+  }
+  .home-sub-title {
+    font-size: 28px;
+    align-items: flex-start;
+  }
+  .home-carousel-container {
+    align-items: flex-start;
+  }
+}
 </style>

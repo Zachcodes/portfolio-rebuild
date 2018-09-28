@@ -48,4 +48,9 @@ export default {
     font-size: 32px;
     /* text-shadow: 3px 3px 16px #272634; */
 }
+@media (max-width: 600px) {
+    .social-media-icon {
+        color: white;
+    }
+}
 </style>

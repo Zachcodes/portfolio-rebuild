@@ -146,4 +146,9 @@ export default {
     margin-bottom: 15px;
   }
 }
+@media (max-width: 600px) {
+  .contact-form-container {
+    width: 100%;
+  }
+}
 </style>
