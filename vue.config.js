@@ -7,5 +7,8 @@ module.exports = {
           changeOrigin: true
         }
       }
+    },
+    chainWebpack: config => {
+      config.optimization.delete('splitChunks')
     }
   }
