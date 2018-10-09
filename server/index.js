@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 //     res.sendFile(path.join(__dirname, '../public/index.html'));
 // });
 
-app.use(express.static('../dist'))
+app.use(express.static(__dirname + '/../dist'))
 //massive setup 
 Massive(process.env.CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
