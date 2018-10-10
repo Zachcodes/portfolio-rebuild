@@ -38,14 +38,14 @@ export default {
 .social-media-icon {
     /* color: #5858588a; */
     color: #ffffff87;
-    font-size: 30px;
+    font-size: 40px;
     margin: 3px 0px;
     transition: all .5s;
 }
 .social-media-icon:hover {
     color: white;
     /* color: #2d2d2d; */
-    font-size: 32px;
+    font-size: 42px;
     /* text-shadow: 3px 3px 16px #272634; */
 }
 @media (max-width: 600px) {
