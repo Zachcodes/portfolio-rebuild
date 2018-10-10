@@ -117,9 +117,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 44px;
+  font-size: 80px;
   text-shadow: 2.5px 2.5px 5px black;
-  letter-spacing: 6px;
+  letter-spacing: 9px;
 }
 .home-sub-title {
   height: 30%;
@@ -127,9 +127,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: 45px;
   text-shadow: 1.5px 1.5px 3px black;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
 }
 .home-carousel-container {
   height: 25%;
@@ -144,18 +144,18 @@ export default {
   justify-content: center;
   height: 100%;
   width: 100%;
-  font-size: 20px;
+  font-size: 30px;
   text-shadow: .5px .5px 1px black;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
   position: relative;
 }
 .fade-base {
   opacity: 0;
   position: relative;
   /* width: 100%; */
-  font-size: 20px;
+  font-size: 28px;
   text-shadow: .5px .5px 1px black;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 @media (max-width: 600px) {
   .home-position-container {

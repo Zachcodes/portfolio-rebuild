@@ -82,7 +82,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  height: 7vh;
+  height: 85px;
   background: black;
   border-bottom: .25px solid white;
 }
@@ -93,9 +93,9 @@ body {
   justify-content: flex-start;
 }
 .nav-logo {
-  height: 60px;
-  width: 60px;
-  margin-top: 10px;
+  height: 90px;
+  width: 90px;
+  margin-top: 20px;
   left: 10px;
   z-index: 2000;
   position: absolute;
@@ -107,7 +107,7 @@ body {
   color: white;
   font-family: "Work Sans", sans-serif;
   letter-spacing: 2px;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
   padding-bottom: 5px;
   text-shadow: .4px .4px .7px black;
@@ -116,7 +116,7 @@ body {
 .nav-links:hover {
   border-bottom: 1.5px solid white;
   text-shadow: .9px .9px 2px black;
-  font-size: 18px;
+  font-size: 24px;
 }
 .nav-links-container {
   width: 50%;

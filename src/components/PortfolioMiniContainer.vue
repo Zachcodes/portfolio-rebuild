@@ -42,8 +42,8 @@ export default {
 
 <style>
 .portfolio-mini-container {
-    height: 250px;
-    width: 40%;
+    height: 500px;
+    width: 45%;
     background-color: white;
     margin-bottom: 20px;
     position: relative;

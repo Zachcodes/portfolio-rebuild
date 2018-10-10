@@ -25,7 +25,7 @@ export default {
 }
 .blog-text {
   color: white;
-  font-size: 24px;
+  font-size: 50px;
   text-shadow: .5px .5px 1px black;
   line-height: 18px;
   letter-spacing: 2.5px;

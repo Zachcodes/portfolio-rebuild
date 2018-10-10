@@ -71,12 +71,12 @@ export default {
   align-items: center;
 }
 .contact-form-container {
-  width: 40%;
-  height: 60%;
+  width: 550px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .contact-input {
   background-color: transparent;
@@ -85,10 +85,10 @@ export default {
   padding-left: 5px;
   margin-bottom: 10px;
   width: 100%;
-  max-width: 250px;
+  max-width: 550px;
   color: white;
-  letter-spacing: 6px;
-  font-size: 12px;
+  letter-spacing: 8px;
+  font-size: 22px;
   font-family: 'Nunito Sans', sans-serif;
 }
 .contact-input:focus {
@@ -98,8 +98,8 @@ export default {
   -moz-box-shadow: none !important;
 }
 .contact-input::-webkit-input-placeholder {
-  font-size: 12px;
-  letter-spacing: 6px;
+  font-size: 22px;
+  letter-spacing: 8px;
   color: #ffffffa6;
 }
 .contact-input-container {
@@ -114,10 +114,10 @@ export default {
   border-radius: 10px;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
-  letter-spacing: 6px;
-  font-size: 16px;
+  letter-spacing: 10px;
+  font-size: 22px;
   width: 100%;
-  max-width: 200px;
+  max-width: 350px;
 }
 .contact-submit-button:focus {
   outline: none;

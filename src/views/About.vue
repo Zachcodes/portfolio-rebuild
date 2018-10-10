@@ -40,36 +40,38 @@ export default {
   display: flex;
   padding-left: 50px;
   padding-right: 50px;
+  padding-top: 100px;
 }
 .about-content-left-container {
   width: 40%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .about-content-right-container {
   width: 60%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 10px;
+  align-items: flex-start;
+  padding-left: 5px;
 }
 .about-picture-container {
   background-image: url('https://avatars2.githubusercontent.com/u/22923676?s=460&v=4');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 325px;
-  width: 325px;
+  height: 600px;
+  width: 450px;
 }
+
 .about-text {
   color: white;
-  font-size: 16px;
+  font-size: 22px;
   text-shadow: .5px .5px 1px black;
-  line-height: 18px;
+  line-height: 24px;
   letter-spacing: 2.5px;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 @media (max-width: 800px) {
   .about-main-container {
     flex-direction: column;
