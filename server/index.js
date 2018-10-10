@@ -41,6 +41,6 @@ app.post('/api/submitContact', mc.sendMail)
 //     console.log(`Listening on port ${process.env.SERVER_PORT}`)
 // })
 
-app.listen(3002, () => {
+app.listen(3200, () => {
     console.log(`Listening on port 3200`)
 })
