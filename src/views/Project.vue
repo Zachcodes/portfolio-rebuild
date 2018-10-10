@@ -90,9 +90,9 @@ export default {
     padding-right: 25px;
     height: 80vh;
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     text-shadow: .5px .5px 1px black;
-    line-height: 18px;
+    line-height: 24px;
     letter-spacing: 2.5px;
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -144,10 +144,10 @@ export default {
     border-radius: 10px;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
-    letter-spacing: 4px;
-    font-size: 12px;
+    letter-spacing: 6px;
+    font-size: 30px;
     width: 80%;
-    max-width: 200px;
+    max-width: 350px;
 }
 .project-view-button:hover {
     color: black;
