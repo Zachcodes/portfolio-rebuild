@@ -43,7 +43,7 @@ export default {
 <style>
 .portfolio-mini-container {
     height: 500px;
-    width: 45%;
+    width: 800px;
     background-color: white;
     margin-bottom: 20px;
     position: relative;
@@ -97,7 +97,7 @@ export default {
 @media (max-width: 800px) {
     .portfolio-mini-container {
         width: 100%;
-        height: 325px;
+        height: 500px;
         border-left: none;
         border-right: none;
     }

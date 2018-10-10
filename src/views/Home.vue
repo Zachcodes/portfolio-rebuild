@@ -63,7 +63,7 @@ export default {
         Velocity(el, {
           transform: [ `translateX(${transitionX})`, `translateX(${initialX})`], 
           opacity: [1, 0] }, 
-          {duration: 3000,
+          {duration: 2000,
            complete: wrapUp})
         function wrapUp() {
           objToReference.fadein = false;
@@ -80,8 +80,8 @@ export default {
       setTimeout(() => {
         Velocity(el, {
         transform: [`translateX(${transitionX})`, `translateX(${initialX})`], 
-        opacity: [0, 1] }, {duration: 3000, complete: done})
-      },3000)
+        opacity: [0, 1] }, {duration: 2000, complete: done})
+      },1200)
     },
     afterLeave(el) {
         this.startingPosition = this.startingPosition === 2 ? 0 : this.startingPosition + 1;
