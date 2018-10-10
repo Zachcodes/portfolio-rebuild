@@ -48,7 +48,20 @@ export default {
         this.email = ''
         this.message = ''
       }).catch( err => {
-        this.$toasted.show('Something went wrong', {type: 'error', duration: 2000})
+        let errString;
+        switch(err.response.status) { 
+          case 501:
+            errString = 'Need to enter an email'
+            break;
+          case 502:
+            errString = 'Need to enter a valid email'
+            break;
+          default: 
+            errString = 'Failed to send email'
+            break;
+        }
+
+        this.$toasted.show(errString, {type: 'error', duration: 2000})
       })
     }
   },

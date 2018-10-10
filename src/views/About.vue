@@ -59,13 +59,13 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 600px;
+  height: 60vh;
   width: 450px;
 }
 
 .about-text {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   text-shadow: .5px .5px 1px black;
   line-height: 24px;
   letter-spacing: 2.5px;

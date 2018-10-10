@@ -45,7 +45,7 @@ export default {
     height: 500px;
     width: 800px;
     background-color: white;
-    margin-bottom: 20px;
+    margin: 20px;
     position: relative;
     border: 1px solid white;
     box-shadow: 1.5px 2px 2px black;
@@ -94,6 +94,12 @@ export default {
     height: 100%;
     width: 100%;
 }
+@media (max-width: 1000px) {
+    .portfolio-mini-container {
+        height: 450px;
+    }
+}
+
 @media (max-width: 800px) {
     .portfolio-mini-container {
         width: 100%;

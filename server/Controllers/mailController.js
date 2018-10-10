@@ -10,13 +10,11 @@ module.exports = {
             subject: `Portfolio Site Automatic Email`,
             text: message
         }
-        transporter.sendMail(mailOptions).then((error, info) => {
-            if(error.rejected.length) {
-                res.status(500).send('Email was rejected')
-            }
-            else {
-                res.status(200).send('Sent email')
-            }
+        transporter.sendMail(mailOptions).then( info => {
+            res.status(200).send('Sent email')
+        })
+        .catch(error => {
+            res.status(500).send('Could not send mail')
         })
     }
 }

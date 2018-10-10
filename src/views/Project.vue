@@ -90,7 +90,7 @@ export default {
     padding-right: 25px;
     height: 80vh;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     text-shadow: .5px .5px 1px black;
     line-height: 24px;
     letter-spacing: 2.5px;
@@ -128,7 +128,7 @@ export default {
 .project-about-description {
     height: 80%;
     width: 100%;
-    padding: 0px 10px;
+    padding: 0px 20px;
 }
 .project-view-main-container {
     width: 100%;

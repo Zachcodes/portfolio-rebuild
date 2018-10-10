@@ -5,6 +5,7 @@ const pc = require('./Controllers/projectController')
 const nodemailer = require('nodemailer')
 const mc = require('./Controllers/mailController')
 const path = require('path');
+const validEmailCheck = require('./Middleware/validEmailCheck')
 
 require('dotenv').config({path: __dirname + '/.env'});
 
@@ -35,7 +36,7 @@ app.set('transporter', transporter)
 
 app.get('/api/projects', pc.getAllProjects)
 app.get('/api/projects/:projectId', pc.getProject)
-app.post('/api/submitContact', mc.sendMail)
+app.post('/api/submitContact', validEmailCheck, mc.sendMail)
 
 // app.listen(process.env.SERVER_PORT, () => {
 //     console.log(`Listening on port ${process.env.SERVER_PORT}`)
