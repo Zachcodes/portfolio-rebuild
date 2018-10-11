@@ -89,6 +89,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 * {
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 html,body
 {
