@@ -14,6 +14,7 @@
              id="fontAwesome"
              v-on:mouseenter="checkDropdown($event, 'in')"
              v-on:mouseleave="checkDropdown($event, 'out')"
+             v-on:touchstart="checkDropdown($event, 'touch')"
              >
         <font-awesome-icon :icon="{prefix: 'fas', iconName: 'bars'}" 
                            ></font-awesome-icon>
@@ -43,11 +44,9 @@ export default {
   },
   methods: {
     checkDropdown(e, direction) {
-      console.log('e.typ', e.type)
       if(direction === 'out') {
         let x = e.clientX, y = e.clientY 
         let elementMouseIsOver = document.elementFromPoint(x, y)
-        console.log(elementMouseIsOver)
         let keepActiveIds = ['navLinksContainer', 'fontAwesome']
         if(elementMouseIsOver && keepActiveIds.indexOf(elementMouseIsOver.id) === -1) {
           let dropdown = document.getElementById('navDropdown')
@@ -60,7 +59,6 @@ export default {
       }
     },
     hideDropdown(route) {
-      console.log('getting in here 2')
       this.$router.push(route)
       let dropdown = document.getElementById('navDropdown')
       dropdown.classList.add('hidden')
