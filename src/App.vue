@@ -124,7 +124,7 @@ body {
   margin-top: 20px;
   left: 10px;
   z-index: 2000;
-  position: absolute;
+  position: relative;
 
 }
 .nav-links {
