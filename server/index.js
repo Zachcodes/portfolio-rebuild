@@ -38,10 +38,6 @@ app.get('/api/projects', pc.getAllProjects)
 app.get('/api/projects/:projectId', pc.getProject)
 app.post('/api/submitContact', validEmailCheck, mc.sendMail)
 
-// app.listen(process.env.SERVER_PORT, () => {
-//     console.log(`Listening on port ${process.env.SERVER_PORT}`)
-// })
-//TODO: Change back to 3200
-app.listen(3200, () => {
-    console.log(`Listening on port 3200`)
+app.listen(process.env.SERVER_PORT, () => {
+    console.log(`Listening on port ${process.env.SERVER_PORT}`)
 })

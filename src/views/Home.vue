@@ -30,10 +30,10 @@ export default {
   },
   data() {
     return {
-      carouselText: ['Passion', 'Creativity', 'Ambition'],
+      carouselText: ['Creativity', 'Passion', 'Ambition'],
       startingPosition: 0,
       fadein: true,
-      currentText: 'Passion',
+      currentText: 'Creativity',
       carouselParent: {}
     }
   },
