@@ -12,12 +12,10 @@
         v-bind:disabled="checkValues">Submit</button>
       </div>
     </form>
-    <SocialMediaContainer/>
   </div>
 </template>
 
 <script>
-import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 import axios from 'axios'
 
 export default {
@@ -28,9 +26,6 @@ export default {
       email: '',
       message: ''
     }
-  },
-  components: {
-    SocialMediaContainer
   },
   methods: {
     handleSubmit() {
@@ -157,6 +152,9 @@ export default {
 @media (max-width: 800px) {
   .contact-input {
     margin-bottom: 15px;
+  }
+  .contact-main-container {
+    min-height: calc(100vh - 135px);
   }
 }
 @media (max-width: 600px) {

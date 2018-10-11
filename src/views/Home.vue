@@ -16,21 +16,16 @@
         </transition>
       </div>
     </div>
-    <SocialMediaContainer/>
   </div>
 </template>
 
 <script>
-import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 
 export default {
   name: 'home',
-  components: {
-    SocialMediaContainer
-  },
   data() {
     return {
-      carouselText: ['Creativity', 'Passion', 'Ambition'],
+      carouselText: ['Creativity', 'Passion', 'Ambition', 'Solutions'],
       startingPosition: 0,
       fadein: true,
       currentText: 'Creativity',
@@ -98,7 +93,7 @@ export default {
 <style>
 .home-main-container {
   width: 100%;
-  height: 80vh;
+  min-height: calc(100vh - 135px);
   display: flex;
   justify-content: center;
   align-items: center;

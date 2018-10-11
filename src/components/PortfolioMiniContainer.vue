@@ -103,9 +103,11 @@ export default {
 @media (max-width: 800px) {
     .portfolio-mini-container {
         width: 100%;
-        height: 500px;
+        height: 450px;
         border-left: none;
         border-right: none;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 </style>

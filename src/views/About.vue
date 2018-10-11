@@ -14,12 +14,10 @@
         On my free time I enjoy working out, climbing, running, spending time with friends and gaming. 
       </div>
     </div>
-    <SocialMediaContainer/>
   </div>
 </template>
 
 <script>
-import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 import myPicture from '../assets/business_photo.jpeg'
 export default {
   name: 'about',
@@ -27,9 +25,6 @@ export default {
     return {
       image: myPicture
     }
-  },
-  components: {
-    SocialMediaContainer
   }
 }
 </script>
@@ -82,6 +77,7 @@ export default {
   }
   .about-content-right-container {
     width: 100%;
+    padding: 20px 20px;
   }
 }
 </style>

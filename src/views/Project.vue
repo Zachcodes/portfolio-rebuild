@@ -18,14 +18,12 @@
                 <button class="project-view-button"><a :href="urlLink" target="_blank">View Project</a></button>
             </div>
         </div> 
-        <SocialMediaContainer/>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
 import ProjectMiniImageContainer from '../components/ProjectMiniImageContainer.vue'
-import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 export default {
     name: 'project',
     data() {
@@ -39,8 +37,7 @@ export default {
         }
     },
     components: {
-        ProjectMiniImageContainer,
-        SocialMediaContainer
+        ProjectMiniImageContainer
     },
     computed: {
         mainDisplayedImage() {

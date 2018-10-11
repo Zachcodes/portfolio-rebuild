@@ -23,18 +23,30 @@
     </div>
     <div class="nav-dropdown hidden" 
          id="navDropdown"
-         v-on:mouseleave="checkDropdown($event, 'out')">
-      <div class="nav-dropdown-div" v-on:click="hideDropdown('/')">Home</div>  
-      <div class="nav-dropdown-div" v-on:click="hideDropdown('/portfolio')">Portfolio</div>  
-      <div class="nav-dropdown-div" v-on:click="hideDropdown('/about')">About</div>     
-      <div class="nav-dropdown-div" v-on:click="hideDropdown('/blog')">Blog</div>     
-      <div class="nav-dropdown-div nav-dropdown-div-bottom" v-on:click="hideDropdown('/contact')">Contact</div>     
+          >
+      <div class="nav-dropdown-div" 
+           v-on:click="hideDropdown('/')"
+           v-on:touchstart="hideDropdown('/')">Home</div>  
+      <div class="nav-dropdown-div" 
+           v-on:click="hideDropdown('/portfolio')"
+           v-on:touchstart="hideDropdown('/portfolio')">Portfolio</div>  
+      <div class="nav-dropdown-div" 
+           v-on:click="hideDropdown('/about')"
+           v-on:touchstart="hideDropdown('/about')">About</div>     
+      <div class="nav-dropdown-div" 
+           v-on:click="hideDropdown('/blog')"
+           v-on:touchstart="hideDropdown('/blog')">Blog</div>     
+      <div class="nav-dropdown-div nav-dropdown-div-bottom" 
+           v-on:click="hideDropdown('/contact')"
+           v-on:touchstart="hideDropdown('/contact')">Contact</div>     
     </div>
     <router-view/>
+    <SocialMediaContainer/>
   </div>
 </template>
 
 <script>
+import SocialMediaContainer from './components/SocialMediaContainer.vue'
 export default {
   name: 'app',
   data() {
@@ -44,6 +56,7 @@ export default {
   },
   methods: {
     checkDropdown(e, direction) {
+      console.log(e.type, direction)
       if(direction === 'out') {
         let x = e.clientX, y = e.clientY 
         let elementMouseIsOver = document.elementFromPoint(x, y)
@@ -59,10 +72,14 @@ export default {
       }
     },
     hideDropdown(route) {
+      console.log('helllll0')
       this.$router.push(route)
       let dropdown = document.getElementById('navDropdown')
       dropdown.classList.add('hidden')
     }
+  },  
+  components: {
+    SocialMediaContainer
   }
 }
 </script>

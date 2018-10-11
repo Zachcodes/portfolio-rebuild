@@ -6,19 +6,16 @@
     :projectName="project.name"
     :image="project.link"
     ></PortfolioMiniContainer>
-    <SocialMediaContainer/>
   </div>
 </template>
 
 <script>
-import SocialMediaContainer from '../components/SocialMediaContainer.vue'
 import PortfolioMiniContainer from '../components/PortfolioMiniContainer.vue'
 import axios from 'axios';
 
 export default {
   name: 'portfolio',
   components: {
-    SocialMediaContainer,
     PortfolioMiniContainer
   },
   data() {

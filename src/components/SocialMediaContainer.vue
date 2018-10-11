@@ -50,10 +50,11 @@ export default {
 }
 @media (max-width: 800px) {
     .social-media-container {
-        position: absolute;
+        position: relative;
         bottom: 0;
         right: 0;
         left: 0;
+        width: 100%;
         flex-direction: row;
         height: 50px;
         background-color: black;
@@ -63,7 +64,7 @@ export default {
     }
     .social-media-icon {
         color: white;
-        margin: 0px 5px;
+        margin: 0px 10px;
     }
 }
 </style>
