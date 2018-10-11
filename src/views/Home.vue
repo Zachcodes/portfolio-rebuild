@@ -182,5 +182,10 @@ export default {
   .home-carousel-container {
     align-items: flex-start;
   }
+  .fade-base {
+    font-size: 22px;
+    text-shadow: .5px .5px 1px black;
+    letter-spacing: 2.5px;
+  }
 }
 </style>
