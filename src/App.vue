@@ -14,7 +14,7 @@
              id="fontAwesome"
              v-on:mouseenter="checkDropdown($event, 'in')"
              v-on:mouseleave="checkDropdown($event, 'out')"
-             v-on:touchstart="checkDropdown($event, 'touch')"
+             v-on:touchstart="checkDropdown($event, 'in')"
              >
         <font-awesome-icon :icon="{prefix: 'fas', iconName: 'bars'}" 
                            ></font-awesome-icon>
