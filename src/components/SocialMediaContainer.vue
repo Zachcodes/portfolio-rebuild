@@ -48,9 +48,22 @@ export default {
     font-size: 42px;
     /* text-shadow: 3px 3px 16px #272634; */
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+    .social-media-container {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        flex-direction: row;
+        height: 50px;
+        background-color: black;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: .5px solid white;
+    }
     .social-media-icon {
         color: white;
+        margin: 0px 5px;
     }
 }
 </style>

@@ -157,10 +157,19 @@ export default {
   text-shadow: .5px .5px 1px black;
   letter-spacing: 4px;
 }
-@media (max-width: 600px) {
+@media(max-width: 1000px) {
   .home-position-container {
     width: 100%;
   }
+}
+@media(max-width: 750px) {
+  .home-title {
+    font-size: 70px;
+    text-shadow: 2.5px 2.5px 5px black;
+    letter-spacing: 5px;
+  }
+}
+@media (max-width: 600px) {
   .home-title {
     font-size: 36px;
     text-shadow: 2.5px 2.5px 5px black;
