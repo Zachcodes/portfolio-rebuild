@@ -14,9 +14,6 @@ const app = express()
 
 app.use(bodyParser.json())
 
-// app.get('*', (req, res)=>{
-//     res.sendFile(path.join(__dirname, '../public/index.html'));
-// });
 
 app.use(express.static(__dirname + '/../dist'))
 //massive setup 
@@ -37,6 +34,10 @@ app.set('transporter', transporter)
 app.get('/api/projects', pc.getAllProjects)
 app.get('/api/projects/:projectId', pc.getProject)
 app.post('/api/submitContact', validEmailCheck, mc.sendMail)
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`Listening on port ${process.env.SERVER_PORT}`)
