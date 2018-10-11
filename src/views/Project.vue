@@ -45,13 +45,7 @@ export default {
     computed: {
         mainDisplayedImage() {
             if(this.projectPictures.length) {
-                let link = this.projectPictures[this.startingPictureIndex].link;
-                // return {
-                //     backgroundImage: `url(${link})`,
-                //     backgroundRepeat: 'no-repeat',
-                //     backgroundPosition: 'center center',
-                //     backgroundSize: 'auto 100%'
-                // }
+                let link = this.projectPictures[this.startingPictureIndex].link;    
                 return link;
             }
         }
@@ -93,7 +87,7 @@ export default {
     font-size: 20px;
     text-shadow: .5px .5px 1px black;
     line-height: 24px;
-    letter-spacing: 2.5px;
+    letter-spacing: 4px;
     font-family: 'Josefin Sans', sans-serif;
 }
 .project-pictures-main-container {
@@ -128,7 +122,11 @@ export default {
 .project-about-description {
     height: 80%;
     width: 100%;
-    padding: 0px 20px;
+    padding: 20px;
+    background-color: #0000003d;
+    border: 1px solid white;
+    margin: 0px 10px;
+    overflow: scroll;
 }
 .project-view-main-container {
     width: 100%;

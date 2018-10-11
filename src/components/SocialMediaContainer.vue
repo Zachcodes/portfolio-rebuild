@@ -1,10 +1,10 @@
 <template>
     <div class="social-media-container">
         <a 
-        href="https://www.facebook.com/ZacharySpringer12"
+        href="https://www.instagram.com/zach_slc/"
         rel="noopener noreferrer"
         target="_blank">
-            <font-awesome-icon :icon="{prefix: 'fab', iconName: 'facebook'}" class="social-media-icon"></font-awesome-icon>
+            <font-awesome-icon :icon="{prefix: 'fab', iconName: 'instagram'}" class="social-media-icon"></font-awesome-icon>
         </a>
         <a 
         href="https://github.com/Zachcodes"

@@ -13,7 +13,8 @@
         <div class="nav-hamburger" 
              id="fontAwesome"
              v-on:mouseenter="checkDropdown($event, 'in')"
-             v-on:mouseleave="checkDropdown($event, 'out')">
+             v-on:mouseleave="checkDropdown($event, 'out')"
+             >
         <font-awesome-icon :icon="{prefix: 'fas', iconName: 'bars'}" 
                            ></font-awesome-icon>
         </div>
@@ -42,9 +43,11 @@ export default {
   },
   methods: {
     checkDropdown(e, direction) {
+      console.log('e.typ', e.type)
       if(direction === 'out') {
         let x = e.clientX, y = e.clientY 
         let elementMouseIsOver = document.elementFromPoint(x, y)
+        console.log(elementMouseIsOver)
         let keepActiveIds = ['navLinksContainer', 'fontAwesome']
         if(elementMouseIsOver && keepActiveIds.indexOf(elementMouseIsOver.id) === -1) {
           let dropdown = document.getElementById('navDropdown')
@@ -57,6 +60,7 @@ export default {
       }
     },
     hideDropdown(route) {
+      console.log('getting in here 2')
       this.$router.push(route)
       let dropdown = document.getElementById('navDropdown')
       dropdown.classList.add('hidden')
@@ -155,6 +159,10 @@ body {
 }
 .nav-dropdown-div-bottom {
   border-bottom: .5px solid white;
+}@media (max-width: 1000px) {
+  .nav-links {
+    font-size: 18px;
+  }
 }
 @media (min-width: 800px) {
   .nav-hamburger {
