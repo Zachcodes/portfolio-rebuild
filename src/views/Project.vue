@@ -186,5 +186,11 @@ export default {
         height: auto;
         padding-top: 20px;
     }
+    .project-about-description {
+        margin: 10px 0px;
+    }
+    .project-view-main-container {
+        margin: 10px 0px;
+    }
 }
 </style>

@@ -90,12 +90,19 @@ export default {
 * {
   box-sizing: border-box;
 }
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
 body {
   margin: 0 auto;
   background-image: linear-gradient(to bottom, rgb(36, 99, 109), rgb(42, 183, 206));
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100%;
 }
 .nav {
   display: flex;
