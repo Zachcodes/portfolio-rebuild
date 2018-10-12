@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     checkDropdown(e, direction) {
-      console.log(e.type, direction)
       if(direction === 'out') {
         let x = e.clientX, y = e.clientY 
         let elementMouseIsOver = document.elementFromPoint(x, y)
@@ -72,7 +71,6 @@ export default {
       }
     },
     hideDropdown(route) {
-      console.log('helllll0')
       this.$router.push(route)
       let dropdown = document.getElementById('navDropdown')
       dropdown.classList.add('hidden')

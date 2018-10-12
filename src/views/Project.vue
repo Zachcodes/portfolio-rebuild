@@ -9,6 +9,8 @@
                      :key="picture.project_image_id"
                      :selected="index === startingPictureIndex"
                      :link="picture.link"
+                     :index="index"
+                     :selectMainImage="selectMainImage"
                      ></ProjectMiniImageContainer>
             </div>
         </div>
@@ -47,6 +49,15 @@ export default {
             }
         }
     },
+    methods: {
+        selectMainImage(index) {
+            this.startingPictureIndex = index;
+            if(this.intervalId) clearInterval(this.intervalId)
+            this.intervalId = setInterval(() => {
+                this.startingPictureIndex === this.projectPictures.length - 1 ? this.startingPictureIndex = 0 : this.startingPictureIndex += 1;
+            }, 4000)
+        }
+    },
     mounted() {
         let {projectId} = this.$route.query
         axios.get(`/api/projects/${projectId}`).then(response => { 
@@ -65,7 +76,7 @@ export default {
             let cbRef = this;
             this.intervalId = setInterval(() => {
                 cbRef.startingPictureIndex === cbRef.projectPictures.length - 1 ? cbRef.startingPictureIndex = 0 : cbRef.startingPictureIndex += 1;
-            }, 5000)
+            }, 4000)
         }
     }
 }
