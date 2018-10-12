@@ -2,7 +2,13 @@
     <div class="project-main-container">
         <div class="project-pictures-main-container">
             <div class="project-picture-main">
+                <div class="arrow-container left" v-on:click="shiftImage('left')">
+                    <font-awesome-icon :icon="{prefix: 'fas', iconName: 'arrow-left'}" class="project-arrow"></font-awesome-icon>
+                </div>
                 <img :src="mainDisplayedImage" class="project-picture"/> 
+                <div class="arrow-container right" v-on:click="shiftImage('right')">
+                    <font-awesome-icon :icon="{prefix: 'fas', iconName: 'arrow-right'}" class="project-arrow"></font-awesome-icon>
+                </div>
             </div> 
             <div class="project-picture-sub">
                 <ProjectMiniImageContainer v-for="(picture, index) in projectPictures"
@@ -53,6 +59,17 @@ export default {
         selectMainImage(index) {
             this.startingPictureIndex = index;
             if(this.intervalId) clearInterval(this.intervalId)
+            this.intervalId = setInterval(() => {
+                this.startingPictureIndex === this.projectPictures.length - 1 ? this.startingPictureIndex = 0 : this.startingPictureIndex += 1;
+            }, 4000)
+        },
+        shiftImage(direction) {
+            if(this.intervalId) clearInterval(this.intervalId)
+            if(direction === 'left') {
+                this.startingPictureIndex = this.startingPictureIndex === 0 ? this.projectPictures.length - 1 : this.startingPictureIndex -= 1
+            } else {
+                this.startingPictureIndex = this.startingPictureIndex === this.projectPictures.length - 1 ? 0 : this.startingPictureIndex += 1
+            }
             this.intervalId = setInterval(() => {
                 this.startingPictureIndex === this.projectPictures.length - 1 ? this.startingPictureIndex = 0 : this.startingPictureIndex += 1;
             }, 4000)
@@ -109,6 +126,7 @@ export default {
     width: 100%;
     border: 1px solid white;
     box-shadow: 2px 2px 2px black;
+    position: relative;
 } 
 .project-picture {
     height: 100%;
@@ -171,6 +189,31 @@ export default {
 }
 .project-view-button a:hover {
     color: black;
+}
+.arrow-container {
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    background-color: #ffffff38;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow-container:hover {
+    width: 6%;
+    cursor: pointer;
+    transition: width 1s;
+}
+.project-arrow {
+    font-size: 34px;
+    color: white;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
 }
 @media (max-width: 800px) {
     .project-main-container {
