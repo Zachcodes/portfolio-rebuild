@@ -1,7 +1,8 @@
 <template>
   <div class="blog-main-container">
     <PostMiniContainer v-for="post in blogPosts"
-    :key="post.post_id">
+    :key="post.post_id"
+    :post="post">
     </PostMiniContainer>
   </div>
 </template>
