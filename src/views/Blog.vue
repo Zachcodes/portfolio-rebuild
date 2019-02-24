@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'blog'
+  name: 'blog',
+  created: async function () {
+    let blogPosts = await axios.get('/api/blog')
+    console.log('blogPosts', blogPosts)
+  }
 }
 </script>
 
