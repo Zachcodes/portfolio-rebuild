@@ -4,7 +4,7 @@ p.file_name,
 p.header_image_url,
 p.snippet,
 p.created_date,
-v.count,
+v.count as view_count,
 (select count(*)
 from comments 
 where blog_post = p.id)

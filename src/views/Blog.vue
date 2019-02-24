@@ -35,6 +35,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 90px 150px 0px 150px;
 }
 
 @media(max-width: 800px) {

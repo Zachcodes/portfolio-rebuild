@@ -4,6 +4,7 @@ const Massive = require('massive');
 const pc = require('./Controllers/projectController')
 const nodemailer = require('nodemailer')
 const mc = require('./Controllers/mailController')
+const bc = require('./Controllers/blogController')
 const path = require('path');
 const validEmailCheck = require('./Middleware/validEmailCheck')
 
@@ -35,16 +36,7 @@ app.get('/api/projects', pc.getAllProjects)
 app.get('/api/projects/:projectId', pc.getProject)
 app.post('/api/submitContact', validEmailCheck, mc.sendMail)
 
-app.get('/api/blog', async function (req, res) {
-    let db = req.app.get('db')
-    try { 
-        let posts = await db.get_all_posts()
-        res.send(posts)
-    }
-    catch(err) {
-        res.send(err)
-    }
-})
+app.get('/api/blog', bc.getAllPosts)
 
 app.get('/blog/:file', (req, res) => {
     let {file} = req.params
