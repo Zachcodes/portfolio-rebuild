@@ -38,9 +38,10 @@ app.post('/api/submitContact', validEmailCheck, mc.sendMail)
 
 app.get('/api/blog', bc.getAllPosts)
 
-app.get('/blog/:file', (req, res) => {
+app.get('/api/blog/:file', (req, res) => {
+    console.log('getting here', req.params)
     let {file} = req.params
-    res.sendFile(path.join(__dirname, `../blog/${file}.txt`))
+    res.sendFile(path.join(__dirname, `../blog/${file}`))
 })
 
 app.get('*', (req, res)=>{

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Blog from './views/Blog.vue'
+import BlogPost from './views/BlogPost.vue'
 import Contact from './views/Contact.vue'
 import About from './views/About.vue'
 import Portfolio from './views/Portfolio.vue'
@@ -22,6 +23,11 @@ export default new Router({
       path: '/blog',
       name: 'blog',
       component: Blog
+    },
+    {
+      path: '/blog/:title',
+      name: 'blogPost',
+      component: BlogPost
     },
     {
       path: '/contact',

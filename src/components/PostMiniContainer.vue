@@ -1,5 +1,5 @@
 <template>
-    <div class="mini-post-container">
+    <div class="mini-post-container" v-on:click="loadBlogPost">
         <div class="post-content-container">
             <h3 class="content-title">{{post.title}}</h3>
             <h5 class="content-author"><b>Written by:</b> {{post.first}} {{post.last}}  |   {{post.formatted_date}}</h5>
@@ -21,8 +21,10 @@
 export default {
     name: 'PostMiniContainer',
     props: ['post'],
-    created(){
-        console.log(this.$props)
+    methods: {
+        loadBlogPost() {
+            this.$router.push(`/blog/${this.$props.post.title.trim()}?file=${this.$props.post.file_name}`)
+        }
     }
 }
 </script>
